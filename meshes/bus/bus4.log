@@ -1,0 +1,305 @@
+Exporter version: 6.4.4, Blender version: 2.90.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\BP\BP PHPStorm\meshes\bus\
+	Python World class constructor completed
+	WARNING: No active camera has been assigned, or is not in a currently selected Blender layer
+	processing begun of mesh:  wheelLeft
+		processing begun of material:  Metal
+		processing begun of material:  Tire
+		processing begun of material:  Bolt
+		processing begun of multimaterial:  bus4.Multimaterial#0
+		num positions      :  1918
+		num normals        :  1918
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2766
+	processing begun of mesh:  body
+		processing begun of material:  Body
+		processing begun of material:  Windows
+		processing begun of material:  karmi
+		processing begun of material:  RearLights
+		processing begun of material:  FrontLights
+		processing begun of material:  Indicators
+		processing begun of material:  FogLights
+		processing begun of material:  Aluminio galvanizado.004
+		processing begun of material:  Aluminio negro.004
+		processing begun of material:  CUERO NEGRO.004
+		processing begun of material:  FrontWindow.002
+		processing begun of material:  interior back
+		processing begun of material:  Material
+		processing begun of material:  Material.009
+		processing begun of material:  Plastico Negro.004
+		processing begun of material:  Material.001
+		processing begun of material:  floor
+		processing begun of material:  roof
+		processing begun of material:  rp_eric_rigged_001_mat
+		processing begun of material:  eyes
+		processing begun of material:  black
+		processing begun of material:  lips
+		processing begun of material:  skin
+		processing begun of material:  hair
+		processing begun of material:  vest
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "0"
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "0"
+		processing begun of multimaterial:  bus4.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  465022
+		num normals        :  465022
+		num tangents       :  1860088
+		num uvs            :  930044
+		num uvs2           :  930044
+		num colors         :  0
+		num triangles      :  529068
+		WARNING: # of 0 area faces found:  314
+	processing begun of mesh:  wheelRight
+		processing begun of material:  Metal.001
+		processing begun of material:  Tire.001
+		processing begun of material:  Bolt.001
+		processing begun of multimaterial:  bus4.Multimaterial#2
+		num positions      :  1932
+		num normals        :  1932
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2766
+	processing begun of mesh:  bus.001
+		processing begun of material:  Body
+		processing begun of material:  Windows
+		processing begun of material:  karmi
+		processing begun of material:  RearLights
+		processing begun of material:  FrontLights
+		processing begun of material:  Indicators
+		processing begun of material:  FogLights
+		processing begun of material:  CUERO NEGRO.001
+		registered as also a user of material:  Body
+		registered as also a user of material:  Windows
+		registered as also a user of material:  karmi
+		registered as also a user of material:  RearLights
+		registered as also a user of material:  FrontLights
+		registered as also a user of material:  Indicators
+		registered as also a user of material:  FogLights
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  bus4.Multimaterial#3
+		num positions      :  210
+		num normals        :  210
+		num tangents       :  0
+		num uvs            :  420
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  110
+	processing begun of mesh:  bus.002
+		processing begun of material:  Body
+		processing begun of material:  Windows
+		processing begun of material:  karmi
+		processing begun of material:  RearLights
+		processing begun of material:  FrontLights
+		processing begun of material:  Indicators
+		processing begun of material:  FogLights
+		processing begun of material:  Aluminio galvanizado.004
+		processing begun of material:  Aluminio negro.004
+		processing begun of material:  CUERO NEGRO.004
+		processing begun of material:  FrontWindow.002
+		processing begun of material:  interior back
+		processing begun of material:  Material
+		processing begun of material:  Material.009
+		processing begun of material:  Plastico Negro.004
+		processing begun of material:  Material.001
+		processing begun of material:  floor
+		registered as also a user of material:  Body
+		registered as also a user of material:  Windows
+		registered as also a user of material:  karmi
+		registered as also a user of material:  RearLights
+		registered as also a user of material:  FrontLights
+		registered as also a user of material:  Indicators
+		registered as also a user of material:  FogLights
+		registered as also a user of material:  Aluminio galvanizado.004
+		registered as also a user of material:  Aluminio negro.004
+		registered as also a user of material:  CUERO NEGRO.004
+		registered as also a user of material:  FrontWindow.002
+		registered as also a user of material:  interior back
+		registered as also a user of material:  Material
+		registered as also a user of material:  Material.009
+		registered as also a user of material:  Plastico Negro.004
+		registered as also a user of material:  Material.001
+		registered as also a user of material:  floor
+		processing begun of multimaterial:  bus4.Multimaterial#4
+		num positions      :  2595
+		num normals        :  2595
+		num tangents       :  0
+		num uvs            :  5190
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  950
+	processing begun of mesh:  bus.003
+		processing begun of material:  Body
+		processing begun of material:  Windows
+		processing begun of material:  karmi
+		processing begun of material:  RearLights
+		processing begun of material:  FrontLights
+		processing begun of material:  Indicators
+		processing begun of material:  FogLights
+		processing begun of material:  Aluminio galvanizado.004
+		processing begun of material:  Aluminio negro.004
+		processing begun of material:  CUERO NEGRO.004
+		processing begun of material:  FrontWindow.002
+		processing begun of material:  interior back
+		processing begun of material:  Material
+		processing begun of material:  Material.009
+		processing begun of material:  Plastico Negro.004
+		processing begun of material:  Material.001
+		processing begun of material:  floor
+		registered as also a user of material:  Body
+		registered as also a user of material:  Windows
+		registered as also a user of material:  karmi
+		registered as also a user of material:  RearLights
+		registered as also a user of material:  FrontLights
+		registered as also a user of material:  Indicators
+		registered as also a user of material:  FogLights
+		registered as also a user of material:  Aluminio galvanizado.004
+		registered as also a user of material:  Aluminio negro.004
+		registered as also a user of material:  CUERO NEGRO.004
+		registered as also a user of material:  FrontWindow.002
+		registered as also a user of material:  interior back
+		registered as also a user of material:  Material
+		registered as also a user of material:  Material.009
+		registered as also a user of material:  Plastico Negro.004
+		registered as also a user of material:  Material.001
+		registered as also a user of material:  floor
+		processing begun of multimaterial:  bus4.Multimaterial#5
+		num positions      :  7140
+		num normals        :  7140
+		num tangents       :  0
+		num uvs            :  14280
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  7164
+		WARNING: # of 0 area faces found:  14
+	processing begun of mesh:  bus.004
+		processing begun of material:  Body
+		processing begun of material:  Windows
+		processing begun of material:  karmi
+		processing begun of material:  RearLights
+		processing begun of material:  FrontLights
+		processing begun of material:  Indicators
+		processing begun of material:  FogLights
+		processing begun of material:  Aluminio galvanizado.004
+		processing begun of material:  Aluminio negro.004
+		processing begun of material:  CUERO NEGRO.004
+		processing begun of material:  FrontWindow.002
+		processing begun of material:  interior back
+		processing begun of material:  Material
+		processing begun of material:  Material.009
+		processing begun of material:  Plastico Negro.004
+		processing begun of material:  Material.001
+		processing begun of material:  floor
+		processing begun of material:  roof
+		registered as also a user of material:  Body
+		registered as also a user of material:  Windows
+		registered as also a user of material:  karmi
+		registered as also a user of material:  RearLights
+		registered as also a user of material:  FrontLights
+		registered as also a user of material:  Indicators
+		registered as also a user of material:  FogLights
+		registered as also a user of material:  Aluminio galvanizado.004
+		registered as also a user of material:  Aluminio negro.004
+		registered as also a user of material:  CUERO NEGRO.004
+		registered as also a user of material:  FrontWindow.002
+		registered as also a user of material:  interior back
+		registered as also a user of material:  Material
+		registered as also a user of material:  Material.009
+		registered as also a user of material:  Plastico Negro.004
+		registered as also a user of material:  Material.001
+		registered as also a user of material:  floor
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  bus4.Multimaterial#6
+		num positions      :  177
+		num normals        :  177
+		num tangents       :  0
+		num uvs            :  354
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  66
+	processing begun of mesh:  bus.005
+		processing begun of material:  Body
+		processing begun of material:  Windows
+		processing begun of material:  karmi
+		processing begun of material:  RearLights
+		processing begun of material:  FrontLights
+		processing begun of material:  Indicators
+		processing begun of material:  FogLights
+		processing begun of material:  Aluminio galvanizado.004
+		processing begun of material:  Aluminio negro.004
+		processing begun of material:  CUERO NEGRO.004
+		processing begun of material:  FrontWindow.002
+		processing begun of material:  interior back
+		processing begun of material:  Material
+		processing begun of material:  Material.009
+		processing begun of material:  Plastico Negro.004
+		processing begun of material:  Material.001
+		processing begun of material:  floor
+		processing begun of material:  roof
+		registered as also a user of material:  Body
+		registered as also a user of material:  Windows
+		registered as also a user of material:  karmi
+		registered as also a user of material:  RearLights
+		registered as also a user of material:  FrontLights
+		registered as also a user of material:  Indicators
+		registered as also a user of material:  FogLights
+		registered as also a user of material:  Aluminio galvanizado.004
+		registered as also a user of material:  Aluminio negro.004
+		registered as also a user of material:  CUERO NEGRO.004
+		registered as also a user of material:  FrontWindow.002
+		registered as also a user of material:  interior back
+		registered as also a user of material:  Material
+		registered as also a user of material:  Material.009
+		registered as also a user of material:  Plastico Negro.004
+		registered as also a user of material:  Material.001
+		registered as also a user of material:  floor
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  bus4.Multimaterial#7
+		num positions      :  286
+		num normals        :  286
+		num tangents       :  0
+		num uvs            :  572
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  131
+	processing begun of node:  rp_eric_rigged_001
+	processing begun of mesh:  BusSteeringWheel
+		processing begun of material:  karmi
+		registered as also a user of material:  karmi
+		num positions      :  18802
+		num normals        :  18802
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  7488
+========= Writing of JSON file started =========
+	writing mesh:  wheelLeft
+	writing mesh:  body
+	writing mesh:  wheelRight
+	writing mesh:  bus.001
+	writing mesh:  bus.002
+	writing mesh:  bus.003
+	writing mesh:  bus.004
+	writing mesh:  bus.005
+	writing mesh:  BusSteeringWheel
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  1 min, 8.4445 secs

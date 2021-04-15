@@ -1,0 +1,215 @@
+Exporter version: 6.4.4, Blender version: 2.90.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\BP\BP PHPStorm\meshes\bus\
+	Python World class constructor completed
+	WARNING: No active camera has been assigned, or is not in a currently selected Blender layer
+	processing begun of mesh:  wheelA
+		processing begun of material:  Metal
+		processing begun of material:  Tire
+		processing begun of material:  Bolt
+		processing begun of multimaterial:  bus2.Multimaterial#0
+		num positions      :  1918
+		num normals        :  1918
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2766
+	processing begun of mesh:  bus
+		processing begun of material:  Body
+		processing begun of material:  Windows
+		processing begun of material:  karmi
+		processing begun of material:  RearLights
+		processing begun of material:  FrontLights
+		processing begun of material:  Indicators
+		processing begun of material:  FogLights
+		processing begun of multimaterial:  bus2.Multimaterial#1
+		num positions      :  2590
+		num normals        :  2590
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  3386
+		WARNING: # of 0 area faces found:  54
+	processing begun of mesh:  wheelB
+		processing begun of material:  Metal.001
+		processing begun of material:  Tire.001
+		processing begun of material:  Bolt.001
+		processing begun of multimaterial:  bus2.Multimaterial#2
+		num positions      :  1932
+		num normals        :  1932
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2766
+	processing begun of mesh:  Cubo
+		processing begun of material:  Material
+		num positions      :  48842
+		num normals        :  48842
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  25000
+	processing begun of mesh:  Círculo
+		processing begun of material:  Material.009
+		num positions      :  18802
+		num normals        :  18802
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  7488
+	processing begun of mesh:  01 Base.001
+		processing begun of material:  Plastico Negro.004
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "UVMap"
+		num positions      :  62904
+		num normals        :  62904
+		num tangents       :  0
+		num uvs            :  125808
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  110208
+	processing begun of mesh:  02 Base rim.001
+		processing begun of material:  Aluminio galvanizado.004
+		num positions      :  8971
+		num normals        :  8971
+		num tangents       :  0
+		num uvs            :  17942
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  16256
+	processing begun of mesh:  03 Base controls.001
+		processing begun of material:  Aluminio galvanizado.004
+		processing begun of material:  Aluminio negro.004
+		registered as also a user of material:  Aluminio galvanizado.004
+		processing begun of multimaterial:  bus2.Multimaterial#3
+		num positions      :  88924
+		num normals        :  88924
+		num tangents       :  0
+		num uvs            :  177848
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  143872
+	processing begun of mesh:  04 Bottom seat.001
+		processing begun of material:  CUERO NEGRO.004
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "UVMap"
+		num positions      :  19137
+		num normals        :  19137
+		num tangents       :  0
+		num uvs            :  38274
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  35904
+	processing begun of mesh:  05 Bottom sides.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  20969
+		num normals        :  20969
+		num tangents       :  0
+		num uvs            :  41938
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  37888
+	processing begun of mesh:  06 Back seat.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  9029
+		num normals        :  9029
+		num tangents       :  0
+		num uvs            :  18058
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  14400
+	processing begun of mesh:  07 Seat back sides.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  24394
+		num normals        :  24394
+		num tangents       :  0
+		num uvs            :  48788
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  43200
+	processing begun of mesh:  08 Upper neck.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  29666
+		num normals        :  29666
+		num tangents       :  0
+		num uvs            :  59332
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54272
+	processing begun of mesh:  09 Header.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  11346
+		num normals        :  11346
+		num tangents       :  0
+		num uvs            :  22692
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  19712
+	processing begun of mesh:  window.002
+		processing begun of material:  FrontWindow.002
+		num positions      :  135
+		num normals        :  135
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  232
+	processing begun of mesh:  frontSideWindows
+		processing begun of material:  FrontWindow.002
+		registered as also a user of material:  FrontWindow.002
+		num positions      :  19
+		num normals        :  19
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  17
+	processing begun of mesh:  Plane.014
+		processing begun of material:  interior back
+		num positions      :  186
+		num normals        :  186
+		num tangents       :  0
+		num uvs            :  372
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  98
+========= Writing of JSON file started =========
+	writing mesh:  wheelA
+	writing mesh:  bus
+	writing mesh:  wheelB
+	writing mesh:  Cubo
+	writing mesh:  Círculo
+	writing mesh:  01 Base.001
+	writing mesh:  02 Base rim.001
+	writing mesh:  03 Base controls.001
+	writing mesh:  04 Bottom seat.001
+	writing mesh:  05 Bottom sides.001
+	writing mesh:  06 Back seat.001
+	writing mesh:  07 Seat back sides.001
+	writing mesh:  08 Upper neck.001
+	writing mesh:  09 Header.001
+	writing mesh:  window.002
+	writing mesh:  frontSideWindows
+	writing mesh:  Plane.014
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 30.7422 secs

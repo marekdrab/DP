@@ -14,6 +14,7 @@ class Bots {
         //struktura bots bude: Bus : 1 , Car : 2, ...
 
         if (botsStruct.Bus > 0) {
+            console.log(botsStruct)
             this.createBus(botsMeshes.Bus, botsStruct.Bus)
         }
 
@@ -74,6 +75,7 @@ class Bots {
     }
 
     createBus(busMeshes, numberOfBuses) {
+        console.log(numberOfBuses)
         var botBody = busMeshes["bus"];
         var botRightFrontWheel = busMeshes["wheelA"];
         botRightFrontWheel.rotate(BABYLON.Axis.X, Math.PI / 2, BABYLON.Space.WORLD);
@@ -99,6 +101,7 @@ class Bots {
         botBody.position = new BABYLON.Vector3(0, 0.5, 300);
 
         for (var i = 0; i < numberOfBuses; i++) { //botsStartPosition.length
+            console.log(i)
             var cloneBot = botBody.clone();
             cloneBot.name = "Autobus" + (1 + i).toString();
             cloneBot.position.x = botsStartPosition[i].x;

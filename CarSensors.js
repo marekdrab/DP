@@ -25,7 +25,7 @@ var predVlavo = {
 var zadVlavo = {
     direction: new BABYLON.Vector3(0, 0, -1),
     origin : new BABYLON.Vector3(3, 1, -3),
-    name : "zadVpravo"
+    name : "zadVlavo"
 }
 
 var rovnoVlavo = {
@@ -109,7 +109,7 @@ if(choice=='truck'){
     var zadVlavo = {
         direction: new BABYLON.Vector3(0, 0, -1),
         origin : new BABYLON.Vector3(3, 1, -3),
-        name : "zadVpravo"
+        name : "zadVlavo"
     }
 
     var rovnoVlavo = {
@@ -193,8 +193,8 @@ if(choice=='bus'){
 
     var zadVlavo = {
         direction: new BABYLON.Vector3(0, 0, -1),
-        origin : new BABYLON.Vector3(24, 1, -5),
-        name : "zadVpravo"
+        origin : new BABYLON.Vector3(24, 1, -6),
+        name : "zadVlavo"
     }
 
     var rovnoVlavo = {

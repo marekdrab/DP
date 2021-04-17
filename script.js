@@ -132,15 +132,32 @@ function getStartCoord(setCoords) {
     xmlhttp.open("GET", "coordinates/input_coords/inputCoords.json", true);
     xmlhttp.send();
 }
-
+function getStartCoordBus(setCoords) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            var jsonData = JSON.parse(this.responseText);
+            setCoords(jsonData);
+        }
+    };
+    xmlhttp.open("GET", "coordinates/input_coords/inputBots.json", true);
+    xmlhttp.send();
+}
 getStartCoord(function (data) {
     if (data["car"]) {
         var jsonCar = data["car"];
         carStartPosition = jsonCar[0];
     }
-    if (data["bots"]) {
+    /*if (data["bots"]) {
         botsStartPosition = data["bots"];
+    }*/
+});
+getStartCoordBus(function (data) {
+    if (data) {
+        botsStartPosition = data;
     }
+    console.log(botsStartPosition)
+    console.log(typeof botsStartPosition.length)
 });
 
 

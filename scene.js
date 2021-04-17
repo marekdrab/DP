@@ -57,8 +57,8 @@ var createScene = function () {
         camera.setPosition(new BABYLON.Vector3(45, 15, 0));
         camera.upperBetaLimit = (Math.PI / 2);
         camera.lowerBetaLimit = (Math.PI / 4);
-        camera.lowerRadiusLimit = 15;
-        camera.upperRadiusLimit = 60;
+        camera.lowerRadiusLimit = 50;
+        camera.upperRadiusLimit = 96;
         camera.attachControl(canvas, true);
         var camera2 = new BABYLON.UniversalCamera("camera2", new BABYLON.Vector3(-16, 5, -2.625), scene);
         camera2.setTarget(new BABYLON.Vector3(-17, 5, -2.625));
@@ -254,7 +254,7 @@ var createScene = function () {
 
             //tmp set number of bots
         var botsStruct = new BotsStruct();
-        botsStruct.Bus = 5;
+        botsStruct.Bus = botsStartPosition.length;
 
 
         var autobusy = new Bots();

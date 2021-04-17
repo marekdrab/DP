@@ -69,8 +69,8 @@ function CreateRoadAndCarStation(meshes, scene) {
     var carStationMat = new BABYLON.StandardMaterial("car_station", scene);
     carStationMat.diffuseTexture = new BABYLON.Texture("textures/road/car-station.jpg", scene);
 
-    var carStation = BABYLON.MeshBuilder.CreateGround("car_station", {width: 45, height: 15}, scene);
-    carStation.position = new BABYLON.Vector3(-10, roadHigh, 322.5);
+    var carStation = BABYLON.MeshBuilder.CreateGround("car_station", {width: 60, height: 20}, scene);
+    carStation.position = new BABYLON.Vector3(-10, roadHigh, 325);
     carStation.material = carStationMat;
 }
 

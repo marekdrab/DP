@@ -622,11 +622,17 @@ var createScene = function () {
         var swTheta = Math.PI / 19;         // steering wheel turning per each frame
 
         var D = 0;      // distance translated per frame
-        var R = 50;     // turning radius
+        var R = 50;
+        if(choice=='truck')
+            R = 50// turning radius
         var NR;         // new turning radius
         var A = 5.6;    // distance between front and rear tyre
         var L = 9.4;    // distance between each tyre
         var r = 1.5;    // wheel radius
+        if(choice=='truck'){
+            A = 1.9
+            L=3.45
+        }
         var wheelRotation;  // wheel rotation
         var carRotation;    // car rotation when turning
 
@@ -644,15 +650,29 @@ var createScene = function () {
             pivotFR.rotate(BABYLON.Axis.Y, turnTheta, BABYLON.Space.LOCAL);
             pivotSW.rotate(BABYLON.Axis.X, turnTheta + swTheta, BABYLON.Space.LOCAL);
 
+
             if (Math.abs(theta) > 0.00000001) {
                 NR = A / 2 + L / Math.tan(theta);
+                if(choice=='truck')
+                NR = (A / 2 + L / Math.tan(theta))*2 ;
+
             } else {
                 theta = 0;
                 NR = 0;
             }
-
-            pivot.translate(BABYLON.Axis.Z, NR - R, BABYLON.Space.LOCAL);
-            carBody.translate(BABYLON.Axis.Z, R - NR, BABYLON.Space.LOCAL);
+            if(choice=='truck'){
+                if(theta>0) {
+                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 10000, BABYLON.Space.LOCAL);
+                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 10000, BABYLON.Space.LOCAL);
+                }
+                if(theta<0){
+                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 10000, BABYLON.Space.LOCAL);
+                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 10000, BABYLON.Space.LOCAL);
+                }
+            }else {
+                pivot.translate(BABYLON.Axis.Z, NR - R, BABYLON.Space.LOCAL);
+                carBody.translate(BABYLON.Axis.Z, R - NR, BABYLON.Space.LOCAL);
+            }
             R = NR;
         }
 
@@ -776,7 +796,10 @@ var createScene = function () {
 
             if (theta < 0 || theta > 0) {
                 if(choice == 'truck'){
+                    if(theta>0)
                     pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
+                    else
+                        pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
                     wheelFL.rotate(BABYLON.Axis.X, wheelRotation, BABYLON.Space.LOCAL);
                     wheelFR.rotate(BABYLON.Axis.X, wheelRotation, BABYLON.Space.LOCAL);
                     //wheelRL.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
@@ -791,6 +814,7 @@ var createScene = function () {
                 }
 
             } else {
+
                 pivot.translate(BABYLON.Axis.X, -distance, BABYLON.Space.LOCAL);
 
                 if(choice == 'truck'){
@@ -838,9 +862,9 @@ var createScene = function () {
 
                 carSensors.groundSensors.forEach(function (element) {
                     const object = scene.pickWithRay(element);
-                    if (object.pickedMesh.name == null) {
+                    /*if (object.pickedMesh.name == null) {
                         console.log(object.pickedMesh.toString());
-                    }
+                    }*/
                     if (object.hit && object.pickedMesh.name.toString() === "ground") {
                         console.log(element.name + " nezaznamenal cestu.");
                     }

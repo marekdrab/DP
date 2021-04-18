@@ -50,8 +50,8 @@ var createScene = function () {
         camera.lowerRadiusLimit = 15;
         camera.upperRadiusLimit = 60;
         camera.attachControl(canvas, true);
-        var camera2 = new BABYLON.UniversalCamera("camera2", new BABYLON.Vector3(-0.64, 0.5, -1.3), scene);
-        camera2.setTarget(new BABYLON.Vector3(-0.65, 0.5, -1.3));
+        var camera2 = new BABYLON.UniversalCamera("camera2", new BABYLON.Vector3(-0.64, 2, -0.5), scene);
+        camera2.setTarget(new BABYLON.Vector3(-0.65, 2, -0.5));
     } else if (choice == 'bus') {
         var camera = new BABYLON.ArcRotateCamera("camera1", 0, 0, 20, new BABYLON.Vector3(-2.5, 0, 0), scene);
         camera.setPosition(new BABYLON.Vector3(45, 15, 0));
@@ -357,7 +357,8 @@ var createScene = function () {
         }
         if (choice == 'truck') {
 
-
+            var carToHide = meshes["car"]
+            carToHide.position = new BABYLON.Vector3(0,-10,0)
             /******** Truck **********/
                 //truck body
             var carBody = meshes["body"]
@@ -369,7 +370,7 @@ var createScene = function () {
             var pivotSW = new BABYLON.Mesh("pivotSW", scene);
             pivotSW.parent = carBody;
             pivotSW.rotate(BABYLON.Axis.Z, Math.PI / 12, BABYLON.Space.LOCAL);
-            pivotSW.position = new BABYLON.Vector3(-1, 0.6, 0.75);
+            pivotSW.position = new BABYLON.Vector3(-1, 1.75, -0.5);
             pivotSW.scaling = new BABYLON.Vector3(0.25, 0.25, 0.25)
 
             var steering_wheel = meshes["steering_wheel"];
@@ -434,7 +435,7 @@ var createScene = function () {
             function createRayCastSensor(scene, carBody, localMeshDirection, localMeshOrigin, name) {
                 var ray = new BABYLON.Ray();
                 var rayHelper = new BABYLON.RayHelper(ray);
-                var length = 5;
+                var length = 2;
                 ray.name = name;
 
                 rayHelper.attachToMesh(carBody, localMeshDirection, localMeshOrigin, length);
@@ -662,12 +663,12 @@ var createScene = function () {
             }
             if(choice=='truck'){
                 if(theta>0) {
-                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 10000, BABYLON.Space.LOCAL);
-                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 10000, BABYLON.Space.LOCAL);
+                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 100000, BABYLON.Space.LOCAL);
+                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 100000, BABYLON.Space.LOCAL);
                 }
                 if(theta<0){
-                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 10000, BABYLON.Space.LOCAL);
-                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 10000, BABYLON.Space.LOCAL);
+                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 100000, BABYLON.Space.LOCAL);
+                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 100000, BABYLON.Space.LOCAL);
                 }
             }else {
                 pivot.translate(BABYLON.Axis.Z, NR - R, BABYLON.Space.LOCAL);

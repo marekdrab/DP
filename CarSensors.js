@@ -90,85 +90,85 @@ var dolePredVlavo = {
 if(choice=='truck'){
     var zadVpravo = {
         direction: new BABYLON.Vector3(0, 0, 1),
-        origin : new BABYLON.Vector3(3, 1, 3),
+        origin : new BABYLON.Vector3(2.9, 1, 1.4),
         name : "zadVpravo"
     }
 
     var predVpravo = {
         direction: new BABYLON.Vector3(0, 0, 1),
-        origin : new BABYLON.Vector3(-5, 1, 3),
+        origin : new BABYLON.Vector3(-2.5, 1, 1.4),
         name : "predVpravo"
     }
 
     var predVlavo = {
         direction: new BABYLON.Vector3(0, 0, -1),
-        origin : new BABYLON.Vector3(-5, 1, -3),
+        origin : new BABYLON.Vector3(-2.5, 1, -1.4),
         name : "predVlavo"
     }
 
     var zadVlavo = {
         direction: new BABYLON.Vector3(0, 0, -1),
-        origin : new BABYLON.Vector3(3, 1, -3),
+        origin : new BABYLON.Vector3(2.9, 1, -1.4),
         name : "zadVlavo"
     }
 
     var rovnoVlavo = {
         direction: new BABYLON.Vector3(-3.5, 0, 0),
-        origin : new BABYLON.Vector3(-6, 1, -2),
+        origin : new BABYLON.Vector3(-2.7, 1, -0.75),
         name : "rovnoVlavo"
     }
 
     var rovnoVpravo = {
         direction: new BABYLON.Vector3(-3.5, 0, 0),
-        origin : new BABYLON.Vector3(-6, 1, 2),
+        origin : new BABYLON.Vector3(-2.7, 1, 0.75),
         name : "rovnoVpravo"
     }
 
     var rovnoZLava = {
         direction: new BABYLON.Vector3(-3.5, 0, 0.7),
-        origin : new BABYLON.Vector3(-6, 1, -2),
+        origin : new BABYLON.Vector3(-2.7, 1, -0.75),
         name : "rovnoZLava"
     }
 
     var rovnoZPrava = {
         direction: new BABYLON.Vector3(-3.5, 0, -0.7),
-        origin : new BABYLON.Vector3(-6, 1, 2),
+        origin : new BABYLON.Vector3(-2.7, 1, 0.75),
         name : "rovnoZPrava"
     }
 
     var doZaduVlavo = {
         direction: new BABYLON.Vector3(1, 0, 0),
-        origin : new BABYLON.Vector3(4.2, 1, 2),
+        origin : new BABYLON.Vector3(3, 1, 0.75),
         name : "doZaduVlavo"
     }
 
     var doZaduVpravo = {
         direction: new BABYLON.Vector3(1, 0, 0),
-        origin : new BABYLON.Vector3(4.2, 1, -2),
+        origin : new BABYLON.Vector3(3, 1, -0.75),
         name : "doZaduVpravo"
     }
 
     var doleZadVpravo = {
         direction: new BABYLON.Vector3(0, -1, -1),
-        origin : new BABYLON.Vector3(3, 1, -3),
+        origin : new BABYLON.Vector3(2.9, 1, -1.4),
         name : "doleZadVpravo"
     }
 
     var doleZadVlavo = {
         direction: new BABYLON.Vector3(0, -1, 1),
-        origin : new BABYLON.Vector3(3, 1, 3),
+        origin : new BABYLON.Vector3(2.9, 1, 1.4),
         name : "doleZadVlavo"
     }
 
     var dolePredVpravo = {
         direction: new BABYLON.Vector3(0, -1, 1),
-        origin : new BABYLON.Vector3(-5, 1, 3),
+        origin : new BABYLON.Vector3(-2.5, 1, 1.4),
         name : "dolePredVpravo"
     }
 
     var dolePredVlavo = {
         direction: new BABYLON.Vector3(0, -1, -1),
-        origin : new BABYLON.Vector3(-5, 1, -3),
+        origin : new BABYLON.Vector3(-2.5, 1, -1.4),
         name : "dolePredVlavo"
     }
 }

@@ -48,10 +48,11 @@ $lang = [
     "graph2" => "Dependence of the rate of time",
     "graph3" => "Movement of vehicles on the map",
     "vehicle" => "Choose your vehicle",
-    "vehicle-sub" => "Choose a vehicle you will drive in the simulation",
+    "vehicle-sub" => "Choose a vehicle You want to drive in the simulation",
     "pickup" => "Pick-up",
     "truck" => "Truck",
     "bus" => "Bus",
+    "bot-count" => "How many bots do You want?",
 ];
 
 ?>

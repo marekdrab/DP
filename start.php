@@ -1,8 +1,9 @@
 <?php
 $json = file_get_contents('coordinates/input_coords/path.json');
 $paths = json_decode($json, true);
-
+session_start();
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['select'])&& isset($_POST['bots'])){
+    $_SESSION['select'] = $_POST['select'];
     $numbers = array();
     $bots = intval($_POST['bots']);
     $coord = array();

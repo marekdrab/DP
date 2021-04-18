@@ -175,7 +175,7 @@ include "config.php";
 <div class="container">
     <div class="row">
         <div class="col-12 text-center pb-5">
-            <a href="model.php" id="startButton" class="btn btn-danger"><span
+            <a href="choice.php" id="startButton" class="btn btn-danger"><span
                         class="h1"><?= $lang['start'] ?></span></a>
         </div>
     </div>

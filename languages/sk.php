@@ -48,11 +48,11 @@ $lang = [
     "graph2" => "Závislosť rýchlosti od času",
     "graph3" => "Pohyb vozidiel po mape",
     "vehicle" => "Vyberte si vozidlo",
-    "vehicle-sub" => "Vyberte si jedno vozidlo, ktoré budete ovládať v simulácii",
+    "vehicle-sub" => "Vyberte si vozidlo, ktoré budete ovládať v simulácii",
     "pickup" => "Pick-up",
     "truck" => "Nákladné auto",
     "bus" => "Autobus",
-
+    "bot-count" => "Koľko botov chcete?",
 ];
 
 ?>

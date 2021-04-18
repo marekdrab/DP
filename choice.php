@@ -1,5 +1,6 @@
 <?php
 include "config.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang['lang'] ?>">
@@ -33,6 +34,9 @@ include "config.php";
                 <li class="nav-item">
                     <a class="nav-link" href="record.php"><?= $lang['record'] ?></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger font-weight-bold" href="choice.php"><?= $lang['start'] ?></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -55,47 +59,36 @@ include "config.php";
             <div class="col-md-4 text-center">
                 <input type="radio" id="control_01" name="select" value="car" required>
                 <label for="control_01" id="label_car">
-                    <p class="h5 mt-5 mb-0"><?= $lang['pickup'] ?></p>
+                    <p class="h5 mt-5 mb-5"><?= $lang['pickup'] ?></p>
                 </label>
-                <a class="nav-link text-danger font-weight-bold" href="model.php?choice=car">
-                    car
-                </a>
             </div>
             <div class="col-md-4 text-center">
                 <input type="radio" id="control_02" name="select" value="truck" required>
                 <label for="control_02" id="label_truck">
-                    <p class="h5 mt-5 mb-0"><?= $lang['truck'] ?></p>
+                    <p class="h5 mt-5 mb-5"><?= $lang['truck'] ?></p>
                 </label>
-                <a class="nav-link text-danger font-weight-bold" href="model.php?choice=truck">
-                    truck
-                </a>
-
             </div>
             <div class="col-md-4 text-center">
                 <input type="radio" id="control_03" name="select" value="bus" required>
                 <label for="control_03" id="label_bus">
-                    <p class="h5 mt-5 mb-0"><?= $lang['bus'] ?></p>
+                    <p class="h5 mt-5 mb-5"><?= $lang['bus'] ?></p>
                 </label>
-                <a class="nav-link text-danger font-weight-bold" href="model.php?choice=bus">
-                    bus
-                </a>
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3>pocet botov</h3>
-                <input class="form-control" type="number" id="bots" name="bots" required>
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center">
+                <h3><?= $lang['bot-count']?></h3>
+                <input class="form-control mb-3 mt-3" type="number" id="bots" name="bots" min="1" max="10" value="1" required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <button class="btn btn-primary" type="submit">Spustit</button>
+                <button class="btn btn-danger" type="submit"><?= $lang['start']?></button>
             </div>
         </div>
     </form>
 </div>
-
 
 <script src="script.js"></script>
 </body>

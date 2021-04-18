@@ -35,8 +35,8 @@ include "config.php";
     <?= $lang['graph3'] ?>
     <div id="botPosition" class="graph-section"></div>
     <div class="lang-section">
-        <a href="model.php?lang=en"><img src="img/en.png" class="img-fluid pr-3" alt="EN"></a>
-        <a href="model.php?lang=sk"><img src="img/sk.png" class="img-fluid" alt="SK"></a>
+        <a href="model.php?choice=<?= $_SESSION['select'] ?>&lang=en"><img src="img/en.png" class="img-fluid pr-3" alt="EN"></a>
+        <a href="model.php?choice=<?= $_SESSION['select'] ?>&lang=sk"><img src="img/sk.png" class="img-fluid" alt="SK"></a>
     </div>
 </div>
 

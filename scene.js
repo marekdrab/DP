@@ -5,8 +5,11 @@ var forwardVector;
 var rightVector;
 var brake;
 var gear;
-
-
+var source = new EventSource('sse.php');
+source.onmessage = function (e) {
+    var data = JSON.parse(e.data);
+    console.log(data);
+}
 /******* Create scene ******/
 
 var createScene = function () {
@@ -105,7 +108,7 @@ var createScene = function () {
         var carTask = assetsManager.addMeshTask("", "", "meshes/car/", "dong-feng2.babylon");
     }
     //added truck
-    if (choice == 'truck'){
+    if (choice == 'truck') {
         var truckTask = assetsManager.addMeshTask("", "", "meshes/truck/", "unimog_new17.babylon");
         var carTask = assetsManager.addMeshTask("", "", "meshes/car/", "dong-feng2.babylon");
     }
@@ -358,7 +361,7 @@ var createScene = function () {
         if (choice == 'truck') {
 
             var carToHide = meshes["car"]
-            carToHide.position = new BABYLON.Vector3(0,-10,0)
+            carToHide.position = new BABYLON.Vector3(0, -10, 0)
             /******** Truck **********/
                 //truck body
             var carBody = meshes["body"]
@@ -624,15 +627,15 @@ var createScene = function () {
 
         var D = 0;      // distance translated per frame
         var R = 50;
-        if(choice=='truck')
+        if (choice == 'truck')
             R = 50// turning radius
         var NR;         // new turning radius
         var A = 5.6;    // distance between front and rear tyre
         var L = 9.4;    // distance between each tyre
         var r = 1.5;    // wheel radius
-        if(choice=='truck'){
+        if (choice == 'truck') {
             A = 1.9
-            L=3.45
+            L = 3.45
         }
         var wheelRotation;  // wheel rotation
         var carRotation;    // car rotation when turning
@@ -654,23 +657,23 @@ var createScene = function () {
 
             if (Math.abs(theta) > 0.00000001) {
                 NR = A / 2 + L / Math.tan(theta);
-                if(choice=='truck')
-                NR = (A / 2 + L / Math.tan(theta))*2 ;
+                if (choice == 'truck')
+                    NR = (A / 2 + L / Math.tan(theta)) * 2;
 
             } else {
                 theta = 0;
                 NR = 0;
             }
-            if(choice=='truck'){
-                if(theta>0) {
+            if (choice == 'truck') {
+                if (theta > 0) {
                     pivot.translate(BABYLON.Axis.Z, (NR - R) / 100000, BABYLON.Space.LOCAL);
                     carBody.translate(BABYLON.Axis.Z, (R - NR) / 100000, BABYLON.Space.LOCAL);
                 }
-                if(theta<0){
+                if (theta < 0) {
                     pivot.translate(BABYLON.Axis.Z, (NR - R) / 100000, BABYLON.Space.LOCAL);
                     carBody.translate(BABYLON.Axis.Z, (R - NR) / 100000, BABYLON.Space.LOCAL);
                 }
-            }else {
+            } else {
                 pivot.translate(BABYLON.Axis.Z, NR - R, BABYLON.Space.LOCAL);
                 carBody.translate(BABYLON.Axis.Z, R - NR, BABYLON.Space.LOCAL);
             }
@@ -796,17 +799,16 @@ var createScene = function () {
             carRotation = D / (R * F);
 
             if (theta < 0 || theta > 0) {
-                if(choice == 'truck'){
-                    if(theta>0)
-                    pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
+                if (choice == 'truck') {
+                    if (theta > 0)
+                        pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
                     else
                         pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
                     wheelFL.rotate(BABYLON.Axis.X, wheelRotation, BABYLON.Space.LOCAL);
                     wheelFR.rotate(BABYLON.Axis.X, wheelRotation, BABYLON.Space.LOCAL);
                     //wheelRL.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
                     //wheelRR.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
-                }
-                else{
+                } else {
                     pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
                     wheelFL.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
                     wheelFR.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
@@ -818,13 +820,12 @@ var createScene = function () {
 
                 pivot.translate(BABYLON.Axis.X, -distance, BABYLON.Space.LOCAL);
 
-                if(choice == 'truck'){
+                if (choice == 'truck') {
                     wheelFL.rotate(BABYLON.Axis.X, -wheelRotation, BABYLON.Space.LOCAL);
                     wheelFR.rotate(BABYLON.Axis.X, -wheelRotation, BABYLON.Space.LOCAL);
                     wheelRL.rotate(BABYLON.Axis.X, -wheelRotation, BABYLON.Space.LOCAL);
                     wheelRR.rotate(BABYLON.Axis.X, -wheelRotation, BABYLON.Space.LOCAL);
-                }
-                else{
+                } else {
                     wheelFL.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
                     wheelFR.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
                     wheelRL.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);

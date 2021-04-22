@@ -5,7 +5,7 @@ botPlot = document.getElementById('botPosition');
 speedPlot = document.getElementById('carSpeed');
 stopModel = document.getElementById('stopModel');
 restartModel = document.getElementById('restartModel');
-
+startModel = document.getElementById('startModel')
 
 var carStartPosition = {x: 0, z: 322.5, r: 0};
 

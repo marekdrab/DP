@@ -84,7 +84,7 @@ session_start();
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <button class="btn btn-danger" type="submit"><?= $lang['start']?></button>
+                <button class="btn btn-danger" type="submit" id="startModel"><?= $lang['start']?></button>
             </div>
         </div>
     </form>

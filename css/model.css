@@ -22,7 +22,7 @@ html, body {
 }
 
 .menu-section {
-    height: 10%;
+    height: 7%;
 }
 
 .graph-section {
@@ -32,4 +32,29 @@ html, body {
 
 .lang-section {
     padding: 10px 0 10px 0;
+}
+.senzor-image{
+height: 140px;
+    width: auto;
+    vertical-align: top;
+}
+#car{
+    min-height: 200px;
+}
+
+#front-sensor, #rear-sensor {
+    width: 39px;
+    height: 25px;
+    margin-left: 45%;}
+#left-front-sensor, #right-front-sensor{
+    width: 25px;
+    height:40px;
+    display: inline-block;
+}
+#left-rear-sensor, #right-rear-sensor{
+    width: 25px;
+    height:40px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: -8%;
 }

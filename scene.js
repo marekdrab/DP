@@ -5,17 +5,11 @@ var forwardVector;
 var rightVector;
 var brake;
 var gear;
-var source = new EventSource('sse.php');
-source.onmessage = function (e) {
-    var data = JSON.parse(e.data);
-    console.log(data);
-}
 /******* Create scene ******/
 
 var createScene = function () {
     /****** Getting choice from URL *******/
     console.log(choice);
-
 
     var scene = new BABYLON.Scene(engine);
 
@@ -25,8 +19,7 @@ var createScene = function () {
     var isCarReady = false;
     var isRoadReady = false;
     var isBotReady = false;
-    var isTruckReady = false;
-    var isBusReady = false;
+
     var isTreeReady = false;
 
 
@@ -50,7 +43,7 @@ var createScene = function () {
         camera.setPosition(new BABYLON.Vector3(10, 5.5, 0));
         camera.upperBetaLimit = (Math.PI / 2);
         camera.lowerBetaLimit = (Math.PI / 4);
-        camera.lowerRadiusLimit = 15;
+        camera.lowerRadiusLimit = 10;
         camera.upperRadiusLimit = 60;
         camera.attachControl(canvas, true);
         var camera2 = new BABYLON.UniversalCamera("camera2", new BABYLON.Vector3(-0.64, 2, -0.5), scene);
@@ -109,7 +102,7 @@ var createScene = function () {
     }
     //added truck
     if (choice == 'truck') {
-        var truckTask = assetsManager.addMeshTask("", "", "meshes/truck/", "unimog_new17.babylon");
+        var truckTask = assetsManager.addMeshTask("", "", "meshes/truck/", "unimog_new19.babylon");
         var carTask = assetsManager.addMeshTask("", "", "meshes/car/", "dong-feng2.babylon");
     }
     //added bus
@@ -205,48 +198,6 @@ var createScene = function () {
         var roadHeight = 300;   // height of road
 
         CreateRoadAndCarStation(meshes, scene);
-
-        /*
-                var roadHigh = -1.3;
-
-                var straightRoadRight = meshes["straight_road"];
-                var straightRoadLeft = straightRoadRight.createInstance();
-
-                straightRoadRight.position = new BABYLON.Vector3(0, roadHigh, 285);
-                straightRoadLeft.position = new BABYLON.Vector3(0, roadHigh, -285);
-
-                var roundRoadUp = meshes["round_road"];
-                var roundRoadDown = roundRoadUp.createInstance();
-
-                roundRoadUp.position = new BABYLON.Vector3(-1285, roadHigh, 0);
-                roundRoadDown.rotation.y = Math.PI;
-                roundRoadDown.position = new BABYLON.Vector3(1285, roadHigh, 0);
-
-
-                /******* Car Station ******/
-
-        /*   var carStationMat = new BABYLON.StandardMaterial("car_station", scene);
-           carStationMat.diffuseTexture = new BABYLON.Texture("textures/road/car-station.jpg", scene);
-
-           var carStation = BABYLON.MeshBuilder.CreateGround("car_station", {width: 45, height: 15}, scene);
-           carStation.position = new BABYLON.Vector3(-10, roadHigh, 322.5);
-           carStation.material = carStationMat; */
-
-        //added temporary truck station
-        /*var truckStationMat = new BABYLON.StandardMaterial("car_station", scene);
-        truckStationMat.diffuseTexture = new BABYLON.Texture("textures/road/car-station.jpg", scene);
-
-        var truckStation = BABYLON.MeshBuilder.CreateGround("car_station", {width: 45, height: 15}, scene);
-        truckStation.position = new BABYLON.Vector3(-55, roadHigh, 322.5);
-        truckStation.material = truckStationMat;*/
-
-        //added temporary bus station
-        /*var busStationMat = new BABYLON.StandardMaterial("car_station", scene);
-        busStationMat.diffuseTexture = new BABYLON.Texture("textures/road/car-station.jpg", scene);
-
-        var busStation = BABYLON.MeshBuilder.CreateGround("car_station", {width: 45, height: 15}, scene);
-        busStation.position = new BABYLON.Vector3(-95, roadHigh, 322.5);
-        busStation.material = busStationMat;*/
 
         /******* Trees ******/
 
@@ -383,8 +334,8 @@ var createScene = function () {
             var wheelFL = meshes["wheelFL"];
             var wheelFR = meshes["wheelFR"];
 
-            wheelFL.rotate(BABYLON.Axis.X, Math.PI / 0.5, BABYLON.Space.WORLD);
-            wheelFR.rotate(BABYLON.Axis.X, Math.PI / 0.5, BABYLON.Space.WORLD);
+            wheelFL.rotate(BABYLON.Axis.X, Math.PI *2, BABYLON.Space.WORLD);
+            wheelFR.rotate(BABYLON.Axis.X, Math.PI *2, BABYLON.Space.WORLD);
 
             var pivotFL = new BABYLON.Mesh("pivotFL", scene);
             pivotFL.parent = carBody;
@@ -405,8 +356,8 @@ var createScene = function () {
             var wheelRL = meshes["wheelRL"]
             var wheelRR = meshes["wheelRR"]
 
-            wheelRL.rotate(BABYLON.Axis.X, Math.PI / 0.5, BABYLON.Space.WORLD);
-            wheelRR.rotate(BABYLON.Axis.X, Math.PI / 0.5, BABYLON.Space.WORLD);
+            wheelRL.rotate(BABYLON.Axis.X, Math.PI*2 , BABYLON.Space.WORLD);
+            wheelRR.rotate(BABYLON.Axis.X, Math.PI*2, BABYLON.Space.WORLD);
 
             var pivotRL = new BABYLON.Mesh("pivotRL", scene)
             pivotRL.parent = carBody;
@@ -592,31 +543,6 @@ var createScene = function () {
         /******* Text at the top of screen ******/
 
         const stackPanel = CreateUI();
-        /*
-
-                var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-
-                var stackPanel = new BABYLON.GUI.StackPanel();
-                stackPanel.background = new BABYLON.Color3(0, 0, 0);
-                stackPanel.width = "100%";
-                stackPanel.height = "50px";
-                stackPanel.isVertical = false;
-                stackPanel.alpha = 0.8;
-                stackPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-                advancedTexture.addControl(stackPanel);
-
-                var fpsText = new BABYLON.GUI.TextBlock();
-                fpsText.width = "200px";
-                fpsText.color = "white";
-                fpsText.fontSize = 20;
-                stackPanel.addControl(fpsText);
-
-                var speedCarText = new BABYLON.GUI.TextBlock();
-                speedCarText.width = "200px";
-                speedCarText.color = "white";
-                speedCarText.fontSize = 20;
-                speedCarText.horizontalAlignment = 1;
-                stackPanel.addControl(speedCarText);*/
 
 
         /******* Variables and function for animation ******/
@@ -658,7 +584,7 @@ var createScene = function () {
             if (Math.abs(theta) > 0.00000001) {
                 NR = A / 2 + L / Math.tan(theta);
                 if (choice == 'truck')
-                    NR = (A / 2 + L / Math.tan(theta)) * 2;
+                    NR = (A / 2 + L / Math.tan(theta));
 
             } else {
                 theta = 0;
@@ -666,12 +592,15 @@ var createScene = function () {
             }
             if (choice == 'truck') {
                 if (theta > 0) {
-                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 100000, BABYLON.Space.LOCAL);
-                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 100000, BABYLON.Space.LOCAL);
+                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 1000000, BABYLON.Space.LOCAL);
+                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 1000000, BABYLON.Space.LOCAL);
+
                 }
                 if (theta < 0) {
-                    pivot.translate(BABYLON.Axis.Z, (NR - R) / 100000, BABYLON.Space.LOCAL);
-                    carBody.translate(BABYLON.Axis.Z, (R - NR) / 100000, BABYLON.Space.LOCAL);
+                    pivot.translate(BABYLON.Axis.Z, -(NR - R) / 1000000, BABYLON.Space.LOCAL);
+                    carBody.translate(BABYLON.Axis.Z, -(R - NR)/ 1000000, BABYLON.Space.LOCAL);
+
+
                 }
             } else {
                 pivot.translate(BABYLON.Axis.Z, NR - R, BABYLON.Space.LOCAL);
@@ -695,12 +624,25 @@ var createScene = function () {
             // rotate skybox
             skybox.rotate(BABYLON.Axis.Y, 0.0001, BABYLON.Space.LOCAL);
 
+
             // start moving bots on scene
-            if (autobusy.busVehicles) {
-                for (var i = 0; i < autobusy.busVehicles.length; i++) {
-                    autobusy.startBusMoving(i);
+            $.ajax({
+                type: 'GET',
+                url: 'control.php/' + autobusy.busVehicles.length,
+                success: function (msg) {
+                    getPosCoordBus(function (data) {
+                        if (data) {
+                            botsPositions = data;
+                        }
+                    });
+                    if (autobusy.busVehicles) {
+                        for (var i = 0; i < autobusy.busVehicles.length; i++) {
+                            autobusy.startBusMoving(i, botsPositions[i]);
+                        }
+                    }
                 }
-            }
+            })
+
 
             // check if car is in scene
             for (var i = 0; i < backgroundMeshes.length; i++) {
@@ -800,12 +742,14 @@ var createScene = function () {
 
             if (theta < 0 || theta > 0) {
                 if (choice == 'truck') {
-                    if (theta > 0)
-                        pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
+                    if (theta > 0){
+                        pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);}
                     else
+                    {
                         pivot.rotate(BABYLON.Axis.Y, carRotation, BABYLON.Space.WORLD);
-                    wheelFL.rotate(BABYLON.Axis.X, wheelRotation, BABYLON.Space.LOCAL);
-                    wheelFR.rotate(BABYLON.Axis.X, wheelRotation, BABYLON.Space.LOCAL);
+                    }
+                    wheelFL.rotate(BABYLON.Axis.X, -wheelRotation, BABYLON.Space.LOCAL);
+                    wheelFR.rotate(BABYLON.Axis.X, -wheelRotation, BABYLON.Space.LOCAL);
                     //wheelRL.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
                     //wheelRR.rotate(BABYLON.Axis.Y, wheelRotation, BABYLON.Space.LOCAL);
                 } else {
@@ -835,12 +779,30 @@ var createScene = function () {
             if ((counter % 10) === 0) {
 
                 carSensors.setDistanceFrontSensors(D);
-
                 carSensors.sideSensors.forEach(function (element) {
                     const object = scene.pickWithRay(element);
                     if (object.hit) {
                         console.log(element.name + " zaznamenal " + object.pickedMesh.name);
+                        if (element.name == predVpravo.name)
+                            $('#right-front-sensor').css('background-color', 'red')
+                        if (element.name == zadVpravo.name)
+                            $('#right-rear-sensor').css('background-color', 'red')
+                        if (element.name == predVlavo.name)
+                            $('#left-front-sensor').css('background-color', 'red')
+                        if (element.name == zadVlavo.name)
+                            $('#left-rear-sensor').css('background-color', 'red')
                         D = 0; //pridanie zastavenia po naraze
+                    } else {
+                        if (element.name == predVpravo.name)
+                            $('#right-front-sensor').css('background-color', 'transparent')
+                        if (element.name == zadVpravo.name)
+                            $('#right-rear-sensor').css('background-color', 'transparent')
+                        if (element.name == predVlavo.name)
+                            $('#left-front-sensor').css('background-color', 'transparent')
+                        if (element.name == zadVlavo.name)
+                            $('#left-rear-sensor').css('background-color', 'transparent')
+                            //console.log(element)
+
                     }
                 });
 
@@ -849,7 +811,9 @@ var createScene = function () {
                     if (object.hit) {
                         console.log(element.name + " zaznamenal " + object.pickedMesh.name);
                         D = 0; //pridanie zastavenia po naraze
-
+                        $('#front-sensor').css('background-color', 'red')
+                    } else {
+                        $('#front-sensor').css('background-color', 'transparent')
                     }
                 });
 
@@ -858,8 +822,11 @@ var createScene = function () {
                     if (object.hit) {
                         console.log(element.name + " zaznamenal " + object.pickedMesh.name);
                         D = 0; //pridanie zastavenia po naraze
-
+                        $('#rear-sensor').css('background-color', 'red')
+                    } else {
+                        $('#rear-sensor').css('background-color', 'transparent')
                     }
+
                 });
 
                 carSensors.groundSensors.forEach(function (element) {
@@ -869,6 +836,20 @@ var createScene = function () {
                     }*/
                     if (object.hit && object.pickedMesh.name.toString() === "ground") {
                         console.log(element.name + " nezaznamenal cestu.");
+                        $('#rear-sensor').css('background-color', 'red')
+                        $('#front-sensor').css('background-color', 'red')
+                        $('#right-front-sensor').css('background-color', 'red')
+                        $('#right-rear-sensor').css('background-color', 'red')
+                        $('#left-front-sensor').css('background-color', 'red')
+                        $('#left-rear-sensor').css('background-color', 'red')
+                        D = D/2;
+                    } else {
+                        $('#rear-sensor').css('background-color', 'transparent')
+                        $('#front-sensor').css('background-color', 'transparent')
+                        $('#right-front-sensor').css('background-color', 'transparent')
+                        $('#right-rear-sensor').css('background-color', 'transparent')
+                        $('#left-front-sensor').css('background-color', 'transparent')
+                        $('#left-rear-sensor').css('background-color', 'transparent')
                     }
                 });
 

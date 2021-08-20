@@ -1,4 +1,8 @@
 var stopRender = false;
+const url = window.location.search;
+const urlParams = new URLSearchParams(url);
+const choice = urlParams.get('choice');
+const userId = urlParams.get('id');
 
 carPlot = document.getElementById('carPosition');
 botPlot = document.getElementById('botPosition');
@@ -10,6 +14,9 @@ startModel = document.getElementById('startModel')
 var carStartPosition = {x: 0, z: 322.5, r: 0};
 
 var botsStartPosition = [
+    {x: 0, z: 300, r: 0}
+];
+var botsPositions = [
     {x: 0, z: 300, r: 0}
 ];
 
@@ -143,6 +150,18 @@ function getStartCoordBus(setCoords) {
     xmlhttp.open("GET", "coordinates/input_coords/inputBots.json", true);
     xmlhttp.send();
 }
+function getPosCoordBus(setCoords) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "coordinates/input_coords/positionsBots/positionsBots"+userId+".json", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            var jsonData = JSON.parse(this.responseText);
+            setCoords(jsonData);
+        }
+    };
+
+}
 getStartCoord(function (data) {
     if (data["car"]) {
         var jsonCar = data["car"];
@@ -157,8 +176,14 @@ getStartCoordBus(function (data) {
         botsStartPosition = data;
     }
     console.log(botsStartPosition)
-    console.log(typeof botsStartPosition.length)
 });
+/*getPosCoordBus(function (data) {
+    if (data) {
+        botsPositions = data;
+    }
+    console.log(botsPositions)
+});*/
+
 
 
 /******* Save position and speed of car in time to json ******/

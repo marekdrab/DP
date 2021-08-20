@@ -24,49 +24,14 @@ class Bots {
 
     }
 
-    startBusMoving(botIndex) {
-        if (this.busVehicles[botIndex].position.x > -this.roadWidth && this.busVehicles[botIndex].position.x < this.roadWidth && this.busVehicles[botIndex].position.z > 0) {
-            if (this.busVehicles[botIndex].busVehiclesCorrection === true) {
-                this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, -(this.busVehicles[botIndex].sumAngle + 2 * Math.PI), BABYLON.Space.LOCAL);
-                this.busVehicles[botIndex].position.x = this.roadWidth;
-                this.busVehicles[botIndex].position.z = this.roadHeight;
+    startBusMoving(botIndex,coords) {
 
-                this.busVehicles[botIndex].sumAngle = 0;
-                this.busVehicles[botIndex].busVehiclesCorrection = false;
-            }
-
-            this.busVehicles[botIndex].translate(BABYLON.Axis.X, -this.busVehicles[botIndex].speedCar, BABYLON.Space.LOCAL);
-            this.busVehicles[botIndex].position.x = Math.round(this.busVehicles[botIndex].position.x * 100) / 100;
-            this.busVehicles[botIndex].position.z = Math.round(this.busVehicles[botIndex].position.z * 100) / 100;
-
-            this.busVehicles[botIndex].turnInterval = 0;
-
-        } else if (this.busVehicles[botIndex].position.x <= -this.roadWidth || this.busVehicles[botIndex].position.x >= this.roadWidth) {
-            this.busVehicles[botIndex].busVehiclesCorrection = true;
-
-            if (this.busVehicles[botIndex].turnInterval % 2 === 0) {
-                this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, -this.busVehicles[botIndex].turnAngle, BABYLON.Space.LOCAL);
-                this.busVehicles[botIndex].sumAngle += -this.busVehicles[botIndex].turnAngle;
-            }
-            this.busVehicles[botIndex].translate(BABYLON.Axis.X, -this.busVehicles[botIndex].speedCar, BABYLON.Space.LOCAL);
-
-            this.busVehicles[botIndex].turnInterval += 1;
-
-        } else if (this.busVehicles[botIndex].position.x > -this.roadWidth && this.busVehicles[botIndex].position.x < this.roadWidth && this.busVehicles[botIndex].position.z < 0) {
-            if (this.busVehicles[botIndex].busVehiclesCorrection === true) {
-                this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, -(this.busVehicles[botIndex].sumAngle + Math.PI), BABYLON.Space.LOCAL);
-                this.busVehicles[botIndex].position.x = -this.roadWidth;
-                this.busVehicles[botIndex].position.z = -this.roadHeight;
-
-                this.busVehicles[botIndex].busVehiclesCorrection = false;
-            }
-
-            this.busVehicles[botIndex].translate(BABYLON.Axis.X, -this.busVehicles[botIndex].speedCar, BABYLON.Space.LOCAL);
-            this.busVehicles[botIndex].position.x = Math.round(this.busVehicles[botIndex].position.x * 100) / 100;
-            this.busVehicles[botIndex].position.z = Math.round(this.busVehicles[botIndex].position.z * 100) / 100;
-
-            this.busVehicles[botIndex].turnInterval = 0;
-        }
+        this.busVehicles[botIndex].position.x = Math.round(coords.x * 100) / 100;
+        this.busVehicles[botIndex].position.z = Math.round(coords.z * 100) / 100;
+        this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, coords.r, BABYLON.Space.LOCAL);
+        console.log(coords.x)
+        console.log(coords.z)
+        console.log(coords.r)
 
         var botWheels = this.busVehicles[botIndex].getChildMeshes();
         for (var i = 0; i < botWheels.length; i++) {

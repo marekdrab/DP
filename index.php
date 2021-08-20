@@ -185,7 +185,7 @@ include "config.php";
     <div class="container">
         <div class="row align-items-center text-center text-white">
             <div class="col-md-4">
-                <p><?= $lang['author'] ?><br>Bc. Lukáš Korčičiak</p>
+                <p><?= $lang['author'] ?><br>Bc. Lukáš Korčičiak, Marek Dráb</p>
                 <p><?= $lang['supervisor'] ?><br>doc. Ing. Katarína Žáková, PhD.</p>
             </div>
             <div class="col-md-4">

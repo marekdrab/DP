@@ -79,7 +79,7 @@ session_start();
         <div class="row justify-content-center">
             <div class="col-md-4 text-center">
                 <h3><?= $lang['bot-count']?></h3>
-                <input class="form-control mb-3 mt-3" type="number" id="bots" name="bots" min="1" max="10" value="1" required>
+                <input class="form-control mb-3 mt-3" type="number" id="bots" name="bots" min="1" max="10" required>
             </div>
         </div>
         <div class="row">
@@ -89,7 +89,28 @@ session_start();
         </div>
     </form>
 </div>
-
+<footer class="py-4 bg-dark fixed-bottom">
+    <div class="container">
+        <div class="row align-items-center text-center text-white">
+            <div class="col-md-4">
+                <p><?= $lang['author'] ?><br>Bc. Lukáš Korčičiak, Marek Dráb</p>
+                <p><?= $lang['supervisor'] ?><br>doc. Ing. Katarína Žáková, PhD.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="img/stu-fei.png" class="img-fluid" alt="STU FEI">
+                <p class="mb-0"><?= $lang['stu'] ?></p>
+                <p><?= $lang['fei'] ?></p>
+            </div>
+            <div class="col-md-4">
+                <div class="pb-3">
+                    <a href="index.php?lang=en"><img src="img/en.png" class="img-fluid pr-3" alt="EN"></a>
+                    <a href="index.php?lang=sk"><img src="img/sk.png" class="img-fluid" alt="SK"></a>
+                </div>
+                <p>Copyright &copy; Simulation of Vehicle 2020</p>
+            </div>
+        </div>
+    </div>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>

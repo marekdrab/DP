@@ -1,0 +1,1386 @@
+Exporter version: 6.4.4, Blender version: 2.90.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\BP\BP PHPStorm\meshes\truck\
+			WARNING: unsupported node type(ShaderNodeTexSky) will trigger baking
+	Python World class constructor completed
+	WARNING: No active camera has been assigned, or is not in a currently selected Blender layer
+	processing begun of mesh:  Unimog1300L.003
+		processing begun of material:  Kaca
+			WARNING: unsupported node type(ShaderNodeBsdfGlass) will trigger baking
+			bake time:  0 min, 0.04 secs
+		num positions      :  826
+		num normals        :  826
+		num tangents       :  0
+		num uvs            :  1652
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  392
+	processing begun of mesh:  Unimog1300L.Mirror_L
+		processing begun of material:  Unimog1300L_C.004
+			WARNING: unsupported node type(ShaderNodeBsdfGlass) will trigger baking
+			bake time:  0 min, 0.006 secs
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  0
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6
+	processing begun of mesh:  Unimog1300L.Mirror
+		processing begun of material:  Unimog1300L_C.003
+			WARNING: unsupported node type(ShaderNodeBsdfGlass) will trigger baking
+			bake time:  0 min, 0.005 secs
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  0
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  32
+		num triangles      :  6
+	processing begun of mesh:  Unimog1300L.001
+		processing begun of material:  Plastico Negro.005
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "UVMap"
+		num positions      :  39
+		num normals        :  39
+		num tangents       :  0
+		num uvs            :  78
+		num uvs2           :  0
+		num colors         :  156
+		num triangles      :  44
+	processing begun of mesh:  body
+		processing begun of material:  Unimog1300L_C.001
+		processing begun of material:  Material.001
+		processing begun of multimaterial:  unimog_new19.Multimaterial#0
+		num positions      :  1086
+		num normals        :  1086
+		num tangents       :  0
+		num uvs            :  2172
+		num uvs2           :  0
+		num colors         :  4344
+		num triangles      :  1009
+		WARNING: # of 0 area faces found:  16
+	processing begun of mesh:  Plane
+		processing begun of material:  mask
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  16
+		num triangles      :  2
+	processing begun of mesh:  disk
+		processing begun of material:  disk
+		num positions      :  2908
+		num normals        :  2908
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  5724
+	processing begun of mesh:  wheelFL
+		processing begun of material:  rubber
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			WARNING: unsupported node type(ShaderNodeBsdfTranslucent) will trigger baking
+		processing begun of material:  disk
+			WARNING: Roughness channel baking required, but not possible, ignored
+			WARNING: Refraction channel baking required, but not possible, ignored
+			Baking texture, type: DIFFUSE, mapped using: BakingUV
+			processing texture wheelFL_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "BakingUV"
+			Baking texture, type: GLOSSY, mapped using: BakingUV
+			processing texture wheelFL_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "BakingUV"
+			bake time:  0 min, 24.1362 secs
+		num positions      :  125402
+		num normals        :  125402
+		num tangents       :  0
+		num uvs            :  250804
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  102132
+		WARNING: # of 0 area faces found:  212
+	processing begun of mesh:  disk.001
+		processing begun of material:  disk
+		registered as also a user of material:  disk
+		num positions      :  2908
+		num normals        :  2908
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  5724
+	processing begun of mesh:  wheelRR
+		processing begun of material:  rubber
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			WARNING: unsupported node type(ShaderNodeBsdfTranslucent) will trigger baking
+		processing begun of material:  disk
+			WARNING: Roughness channel baking required, but not possible, ignored
+			WARNING: Refraction channel baking required, but not possible, ignored
+			Baking texture, type: DIFFUSE, mapped using: BakingUV
+			processing texture wheelRR_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "BakingUV"
+			Baking texture, type: GLOSSY, mapped using: BakingUV
+			processing texture wheelRR_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "BakingUV"
+			bake time:  0 min, 20.8646 secs
+		num positions      :  125395
+		num normals        :  125395
+		num tangents       :  0
+		num uvs            :  250790
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  102132
+		WARNING: # of 0 area faces found:  212
+	processing begun of mesh:  disk.002
+		processing begun of material:  disk
+		registered as also a user of material:  disk
+		num positions      :  2908
+		num normals        :  2908
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  5724
+	processing begun of mesh:  wheelRL
+		processing begun of material:  rubber
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			WARNING: unsupported node type(ShaderNodeBsdfTranslucent) will trigger baking
+		processing begun of material:  disk
+			WARNING: Roughness channel baking required, but not possible, ignored
+			WARNING: Refraction channel baking required, but not possible, ignored
+			Baking texture, type: DIFFUSE, mapped using: BakingUV
+			processing texture wheelRL_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "BakingUV"
+			Baking texture, type: GLOSSY, mapped using: BakingUV
+			processing texture wheelRL_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "BakingUV"
+			bake time:  0 min, 20.4876 secs
+		num positions      :  125403
+		num normals        :  125403
+		num tangents       :  0
+		num uvs            :  250806
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  102132
+		WARNING: # of 0 area faces found:  212
+	processing begun of mesh:  disk.003
+		processing begun of material:  disk
+		registered as also a user of material:  disk
+		num positions      :  2908
+		num normals        :  2908
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  5724
+	processing begun of mesh:  wheelFR
+		processing begun of material:  rubber
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			WARNING: unsupported node type(ShaderNodeBsdfTranslucent) will trigger baking
+		processing begun of material:  disk
+			WARNING: Roughness channel baking required, but not possible, ignored
+			WARNING: Refraction channel baking required, but not possible, ignored
+			Baking texture, type: DIFFUSE, mapped using: BakingUV
+			processing texture wheelFR_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "BakingUV"
+			Baking texture, type: GLOSSY, mapped using: BakingUV
+			processing texture wheelFR_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "BakingUV"
+			bake time:  0 min, 20.0161 secs
+		num positions      :  125405
+		num normals        :  125405
+		num tangents       :  0
+		num uvs            :  250810
+		num uvs2           :  0
+		num colors         :  501620
+		num triangles      :  102132
+		WARNING: # of 0 area faces found:  212
+	processing begun of mesh:  Cubo
+		processing begun of material:  Material
+		num positions      :  48842
+		num normals        :  48842
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  25000
+	processing begun of mesh:  Círculo.001
+		processing begun of material:  Material.011
+		num positions      :  3042
+		num normals        :  3042
+		num tangents       :  0
+		num uvs            :  0
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1120
+	processing begun of mesh:  Sphere
+		processing begun of material:  Material.010
+		num positions      :  2593
+		num normals        :  2593
+		num tangents       :  0
+		num uvs            :  5186
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  960
+	processing begun of mesh:  Plane.003
+		processing begun of material:  Material.003
+		num positions      :  129
+		num normals        :  129
+		num tangents       :  0
+		num uvs            :  258
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  78
+		WARNING: # of 0 area faces found:  3
+	processing begun of mesh:  Plane.004
+		processing begun of material:  Material.003
+		registered as also a user of material:  Material.003
+		num positions      :  238
+		num normals        :  238
+		num tangents       :  0
+		num uvs            :  476
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  198
+	processing begun of mesh:  Plane.005
+		processing begun of material:  Material.003
+		registered as also a user of material:  Material.003
+		num positions      :  124
+		num normals        :  124
+		num tangents       :  0
+		num uvs            :  248
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  104
+	processing begun of mesh:  Plane.006
+		processing begun of material:  Material.003
+		registered as also a user of material:  Material.003
+		num positions      :  54
+		num normals        :  54
+		num tangents       :  0
+		num uvs            :  108
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  18
+	processing begun of mesh:  Plane.007
+		processing begun of material:  Material.003
+		registered as also a user of material:  Material.003
+		num positions      :  54
+		num normals        :  54
+		num tangents       :  0
+		num uvs            :  108
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  18
+	processing begun of mesh:  Plane.008
+		processing begun of material:  Material.003
+		registered as also a user of material:  Material.003
+		num positions      :  42
+		num normals        :  42
+		num tangents       :  0
+		num uvs            :  84
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  Plane.009
+		processing begun of material:  Material.003
+		registered as also a user of material:  Material.003
+		num positions      :  52
+		num normals        :  52
+		num tangents       :  0
+		num uvs            :  104
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  01 Base.002
+		processing begun of material:  Plastico Negro.004
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "UVMap"
+		num positions      :  62904
+		num normals        :  62904
+		num tangents       :  0
+		num uvs            :  125808
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  110208
+	processing begun of mesh:  02 Base rim.002
+		processing begun of material:  Aluminio galvanizado.005
+		num positions      :  8971
+		num normals        :  8971
+		num tangents       :  0
+		num uvs            :  17942
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  16256
+	processing begun of mesh:  03 Base controls.002
+		processing begun of material:  Aluminio galvanizado.005
+		processing begun of material:  Aluminio negro.005
+		registered as also a user of material:  Aluminio galvanizado.005
+		processing begun of multimaterial:  unimog_new19.Multimaterial#1
+		num positions      :  88924
+		num normals        :  88924
+		num tangents       :  0
+		num uvs            :  177848
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  143872
+	processing begun of mesh:  04 Bottom seat.002
+		processing begun of material:  CUERO NEGRO.005
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "UVMap"
+		num positions      :  19137
+		num normals        :  19137
+		num tangents       :  0
+		num uvs            :  38274
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  35904
+	processing begun of mesh:  05 Bottom sides.002
+		processing begun of material:  CUERO NEGRO.005
+		registered as also a user of material:  CUERO NEGRO.005
+		num positions      :  20969
+		num normals        :  20969
+		num tangents       :  0
+		num uvs            :  41938
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  37888
+	processing begun of mesh:  06 Back seat.002
+		processing begun of material:  CUERO NEGRO.005
+		registered as also a user of material:  CUERO NEGRO.005
+		num positions      :  9029
+		num normals        :  9029
+		num tangents       :  0
+		num uvs            :  18058
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  14400
+	processing begun of mesh:  07 Seat back sides.002
+		processing begun of material:  CUERO NEGRO.005
+		registered as also a user of material:  CUERO NEGRO.005
+		num positions      :  24394
+		num normals        :  24394
+		num tangents       :  0
+		num uvs            :  48788
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  43200
+	processing begun of mesh:  08 Upper neck.002
+		processing begun of material:  CUERO NEGRO.005
+		registered as also a user of material:  CUERO NEGRO.005
+		num positions      :  29666
+		num normals        :  29666
+		num tangents       :  0
+		num uvs            :  59332
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54272
+	processing begun of mesh:  09 Header.002
+		processing begun of material:  CUERO NEGRO.005
+		registered as also a user of material:  CUERO NEGRO.005
+		num positions      :  11346
+		num normals        :  11346
+		num tangents       :  0
+		num uvs            :  22692
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  19712
+	processing begun of mesh:  01 Base.001
+		processing begun of material:  Plastico Negro.004
+		registered as also a user of material:  Plastico Negro.004
+		num positions      :  62904
+		num normals        :  62904
+		num tangents       :  0
+		num uvs            :  125808
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  110208
+	processing begun of mesh:  02 Base rim.001
+		processing begun of material:  Aluminio galvanizado.004
+		num positions      :  8971
+		num normals        :  8971
+		num tangents       :  0
+		num uvs            :  17942
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  16256
+	processing begun of mesh:  03 Base controls.001
+		processing begun of material:  Aluminio galvanizado.004
+		processing begun of material:  Aluminio negro.004
+		registered as also a user of material:  Aluminio galvanizado.004
+		processing begun of multimaterial:  unimog_new19.Multimaterial#2
+		num positions      :  88924
+		num normals        :  88924
+		num tangents       :  0
+		num uvs            :  177848
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  143872
+	processing begun of mesh:  04 Bottom seat.001
+		processing begun of material:  CUERO NEGRO.004
+			processing texture Leather_006_NORM
+				texture type:  bumpTexture, mapped using: "UVMap"
+		num positions      :  19137
+		num normals        :  19137
+		num tangents       :  0
+		num uvs            :  38274
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  35904
+	processing begun of mesh:  05 Bottom sides.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  20969
+		num normals        :  20969
+		num tangents       :  0
+		num uvs            :  41938
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  37888
+	processing begun of mesh:  06 Back seat.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  9029
+		num normals        :  9029
+		num tangents       :  0
+		num uvs            :  18058
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  14400
+	processing begun of mesh:  07 Seat back sides.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  24394
+		num normals        :  24394
+		num tangents       :  0
+		num uvs            :  48788
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  43200
+	processing begun of mesh:  08 Upper neck.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  29666
+		num normals        :  29666
+		num tangents       :  0
+		num uvs            :  59332
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54272
+	processing begun of mesh:  09 Header.001
+		processing begun of material:  CUERO NEGRO.004
+		registered as also a user of material:  CUERO NEGRO.004
+		num positions      :  11346
+		num normals        :  11346
+		num tangents       :  0
+		num uvs            :  22692
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  19712
+	processing begun of mesh:  maskFrame
+		processing begun of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.014
+		processing begun of material:  interior back
+		num positions      :  94
+		num normals        :  94
+		num tangents       :  0
+		num uvs            :  188
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  88
+	processing begun of mesh:  Plane.037
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.038
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.039
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.040
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.041
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.042
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.043
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Cube
+		processing begun of material:  korba
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  Cube.001
+		processing begun of material:  korba
+		registered as also a user of material:  korba
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  Cube.002
+		processing begun of material:  korba
+		registered as also a user of material:  korba
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  Cube.003
+		processing begun of material:  korba
+		registered as also a user of material:  korba
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  Cube.004
+		processing begun of material:  korba
+		registered as also a user of material:  korba
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  Cube.005
+		processing begun of material:  korba
+		registered as also a user of material:  korba
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  Unimog1300L.004
+		processing begun of material:  Plastico Negro.005
+		registered as also a user of material:  Plastico Negro.005
+		num positions      :  39
+		num normals        :  39
+		num tangents       :  0
+		num uvs            :  78
+		num uvs2           :  0
+		num colors         :  156
+		num triangles      :  44
+	processing begun of mesh:  Cylinder
+		processing begun of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Cylinder.001
+		processing begun of material:  tyc a panty
+		registered as also a user of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Cylinder.002
+		processing begun of material:  tyc a panty
+		registered as also a user of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Cylinder.003
+		processing begun of material:  tyc a panty
+		registered as also a user of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Cylinder.004
+		processing begun of material:  tyc a panty
+		registered as also a user of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Cylinder.005
+		processing begun of material:  tyc a panty
+		registered as also a user of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Cylinder.006
+		processing begun of material:  tyc a panty
+		registered as also a user of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Cylinder.007
+		processing begun of material:  tyc a panty
+		registered as also a user of material:  tyc a panty
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  Plane.015
+		processing begun of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.016
+		processing begun of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.017
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.018
+		processing begun of material:  biely pas
+		registered as also a user of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.019
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.020
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.021
+		processing begun of material:  biely pas
+		registered as also a user of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.022
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.023
+		processing begun of material:  biely pas
+		registered as also a user of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.024
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.025
+		processing begun of material:  biely pas
+		registered as also a user of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.026
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.027
+		processing begun of material:  biely pas.002
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.028
+		processing begun of material:  biely pas.003
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.029
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.030
+		processing begun of material:  biely pas
+		registered as also a user of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.031
+		processing begun of material:  biely pas
+		registered as also a user of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.032
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.033
+		processing begun of material:  biely pas.004
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.034
+		processing begun of material:  biely pas.005
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.035
+		processing begun of material:  cerveny pas
+		registered as also a user of material:  cerveny pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.036
+		processing begun of material:  biely pas
+		registered as also a user of material:  biely pas
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  baseled
+		processing begun of material:  Corme
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			processing texture baseleds
+				texture type:  specularTexture, mapped using: "UVMap"
+			processing texture baseleds
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.0194 secs
+		num positions      :  5453
+		num normals        :  5453
+		num tangents       :  0
+		num uvs            :  10906
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  9088
+	processing begun of mesh:  carcaca
+		processing begun of material:  Plastico Negro.005
+		registered as also a user of material:  Plastico Negro.005
+		num positions      :  4322
+		num normals        :  4322
+		num tangents       :  0
+		num uvs            :  8644
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6336
+	processing begun of mesh:  glassred
+		processing begun of material:  Glass
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			processing texture Glassred
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture Glassred
+				texture type:  specularTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.014 secs
+		num positions      :  3264
+		num normals        :  3264
+		num tangents       :  0
+		num uvs            :  6528
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6254
+	processing begun of mesh:  glasswhite
+		processing begun of material:  Glasswhite
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			Baking texture, type: DIFFUSE, mapped using: UVMap
+			processing texture glasswhite_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			Baking texture, type: GLOSSY, mapped using: UVMap
+			processing texture glasswhite_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "UVMap"
+			bake time:  0 min, 13.7781 secs
+		num positions      :  3607
+		num normals        :  3607
+		num tangents       :  0
+		num uvs            :  7214
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  3082
+	processing begun of mesh:  leds
+		processing begun of material:  Cormeleds
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			processing texture leds
+				texture type:  specularTexture, mapped using: "UVMap"
+			processing texture leds
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.1115 secs
+		num positions      :  54532
+		num normals        :  54532
+		num tangents       :  0
+		num uvs            :  109064
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  107984
+	processing begun of mesh:  reflector
+		processing begun of material:  Cormerefletivos
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			Baking texture, type: DIFFUSE, mapped using: UVMap
+			processing texture reflector_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			Baking texture, type: GLOSSY, mapped using: UVMap
+			processing texture reflector_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "UVMap"
+			bake time:  0 min, 8.097 secs
+		num positions      :  16612
+		num normals        :  16612
+		num tangents       :  0
+		num uvs            :  33224
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  8785
+	processing begun of mesh:  baseled.001
+		processing begun of material:  Corme.002
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			processing texture baseleds
+				texture type:  specularTexture, mapped using: "UVMap"
+			processing texture baseleds
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.0152 secs
+		num positions      :  5453
+		num normals        :  5453
+		num tangents       :  0
+		num uvs            :  10906
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  9088
+	processing begun of mesh:  carcaca.001
+		processing begun of material:  Plastico Negro.005
+		registered as also a user of material:  Plastico Negro.005
+		num positions      :  4322
+		num normals        :  4322
+		num tangents       :  0
+		num uvs            :  8644
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6336
+	processing begun of mesh:  glassred.001
+		processing begun of material:  Glass.002
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			processing texture Glassred
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture Glassred
+				texture type:  specularTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.0133 secs
+		num positions      :  3264
+		num normals        :  3264
+		num tangents       :  0
+		num uvs            :  6528
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6254
+	processing begun of mesh:  glasswhite.001
+		processing begun of material:  Glasswhite.002
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			Baking texture, type: DIFFUSE, mapped using: UVMap
+			processing texture glasswhite_001_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			Baking texture, type: GLOSSY, mapped using: UVMap
+			processing texture glasswhite_001_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "UVMap"
+			bake time:  0 min, 11.5306 secs
+		num positions      :  3607
+		num normals        :  3607
+		num tangents       :  0
+		num uvs            :  7214
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  3082
+	processing begun of mesh:  leds.001
+		processing begun of material:  Cormeleds.002
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			processing texture leds
+				texture type:  specularTexture, mapped using: "UVMap"
+			processing texture leds
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.1454 secs
+		num positions      :  54532
+		num normals        :  54532
+		num tangents       :  0
+		num uvs            :  109064
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  107984
+	processing begun of mesh:  reflector.001
+		processing begun of material:  Cormerefletivos.002
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			WARNING: unsupported node type(ShaderNodeRGB) will trigger baking
+			WARNING: unsupported node type(ShaderNodeAddShader) will trigger baking
+			Baking texture, type: DIFFUSE, mapped using: UVMap
+			processing texture reflector_001_baked_DIFFUSE
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			Baking texture, type: GLOSSY, mapped using: UVMap
+			processing texture reflector_001_baked_GLOSSY
+				texture type:  specularTexture, mapped using: "UVMap"
+			bake time:  0 min, 8.4215 secs
+		num positions      :  16612
+		num normals        :  16612
+		num tangents       :  0
+		num uvs            :  33224
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  8785
+	processing begun of mesh:  lightBase
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  lightBase2
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  light
+		processing begun of material:  svetlo
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  light2
+		processing begun of material:  svetlo
+		registered as also a user of material:  svetlo
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  turnLight
+		processing begun of material:  smerovka
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  turnLight2
+		processing begun of material:  smerovka
+		registered as also a user of material:  smerovka
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  turnLightSide2
+		processing begun of material:  smerovka
+		registered as also a user of material:  smerovka
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  turnLightSide
+		processing begun of material:  smerovka
+		registered as also a user of material:  smerovka
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  fogLightBase
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  fogLightBase2
+		processing begun of material:  maskframe
+		registered as also a user of material:  maskframe
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  fogLight2
+		WARNING: No materials have been assigned: 
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  fogLight
+		processing begun of material:  svetlo
+		registered as also a user of material:  svetlo
+		num positions      :  309
+		num normals        :  309
+		num tangents       :  0
+		num uvs            :  618
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  124
+	processing begun of mesh:  frontBumper
+		processing begun of material:  Plastico Negro.005
+		registered as also a user of material:  Plastico Negro.005
+		num positions      :  297
+		num normals        :  297
+		num tangents       :  0
+		num uvs            :  594
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  116
+	processing begun of node:  rp_eric_rigged_001
+	processing begun of mesh:  rp_eric_rigged_001_geo
+		processing begun of material:  rp_eric_rigged_001_mat
+		processing begun of material:  skin
+		processing begun of material:  eyes
+		processing begun of material:  lips
+		processing begun of material:  vest
+		processing begun of material:  hair
+		processing begun of material:  black
+		processing begun of multimaterial:  unimog_new19.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  16540
+		num normals        :  16540
+		num tangents       :  66160
+		num uvs            :  33080
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  22138
+========= Writing of JSON file started =========
+	writing mesh:  Unimog1300L.003
+	writing mesh:  Unimog1300L.Mirror_L
+	writing mesh:  Unimog1300L.Mirror
+	writing mesh:  Unimog1300L.001
+	writing mesh:  body
+	writing mesh:  Plane
+	writing mesh:  disk
+	writing mesh:  wheelFL
+	writing mesh:  disk.001
+	writing mesh:  wheelRR
+	writing mesh:  disk.002
+	writing mesh:  wheelRL
+	writing mesh:  disk.003
+	writing mesh:  wheelFR
+	writing mesh:  Cubo
+	writing mesh:  Círculo.001
+	writing mesh:  Sphere
+	writing mesh:  Plane.003
+	writing mesh:  Plane.004
+	writing mesh:  Plane.005
+	writing mesh:  Plane.006
+	writing mesh:  Plane.007
+	writing mesh:  Plane.008
+	writing mesh:  Plane.009
+	writing mesh:  01 Base.002
+	writing mesh:  02 Base rim.002
+	writing mesh:  03 Base controls.002
+	writing mesh:  04 Bottom seat.002
+	writing mesh:  05 Bottom sides.002
+	writing mesh:  06 Back seat.002
+	writing mesh:  07 Seat back sides.002
+	writing mesh:  08 Upper neck.002
+	writing mesh:  09 Header.002
+	writing mesh:  01 Base.001
+	writing mesh:  02 Base rim.001
+	writing mesh:  03 Base controls.001
+	writing mesh:  04 Bottom seat.001
+	writing mesh:  05 Bottom sides.001
+	writing mesh:  06 Back seat.001
+	writing mesh:  07 Seat back sides.001
+	writing mesh:  08 Upper neck.001
+	writing mesh:  09 Header.001
+	writing mesh:  maskFrame
+	writing mesh:  Plane.014
+	writing mesh:  Plane.037
+	writing mesh:  Plane.038
+	writing mesh:  Plane.039
+	writing mesh:  Plane.040
+	writing mesh:  Plane.041
+	writing mesh:  Plane.042
+	writing mesh:  Plane.043
+	writing mesh:  Cube
+	writing mesh:  Cube.001
+	writing mesh:  Cube.002
+	writing mesh:  Cube.003
+	writing mesh:  Cube.004
+	writing mesh:  Cube.005
+	writing mesh:  Unimog1300L.004
+	writing mesh:  Cylinder
+	writing mesh:  Cylinder.001
+	writing mesh:  Cylinder.002
+	writing mesh:  Cylinder.003
+	writing mesh:  Cylinder.004
+	writing mesh:  Cylinder.005
+	writing mesh:  Cylinder.006
+	writing mesh:  Cylinder.007
+	writing mesh:  Plane.015
+	writing mesh:  Plane.016
+	writing mesh:  Plane.017
+	writing mesh:  Plane.018
+	writing mesh:  Plane.019
+	writing mesh:  Plane.020
+	writing mesh:  Plane.021
+	writing mesh:  Plane.022
+	writing mesh:  Plane.023
+	writing mesh:  Plane.024
+	writing mesh:  Plane.025
+	writing mesh:  Plane.026
+	writing mesh:  Plane.027
+	writing mesh:  Plane.028
+	writing mesh:  Plane.029
+	writing mesh:  Plane.030
+	writing mesh:  Plane.031
+	writing mesh:  Plane.032
+	writing mesh:  Plane.033
+	writing mesh:  Plane.034
+	writing mesh:  Plane.035
+	writing mesh:  Plane.036
+	writing mesh:  baseled
+	writing mesh:  carcaca
+	writing mesh:  glassred
+	writing mesh:  glasswhite
+	writing mesh:  leds
+	writing mesh:  reflector
+	writing mesh:  baseled.001
+	writing mesh:  carcaca.001
+	writing mesh:  glassred.001
+	writing mesh:  glasswhite.001
+	writing mesh:  leds.001
+	writing mesh:  reflector.001
+	writing mesh:  lightBase
+	writing mesh:  lightBase2
+	writing mesh:  light
+	writing mesh:  light2
+	writing mesh:  turnLight
+	writing mesh:  turnLight2
+	writing mesh:  turnLightSide2
+	writing mesh:  turnLightSide
+	writing mesh:  fogLightBase
+	writing mesh:  fogLightBase2
+	writing mesh:  fogLight2
+	writing mesh:  fogLight
+	writing mesh:  frontBumper
+	writing mesh:  rp_eric_rigged_001_geo
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  4 min, 17.884 secs

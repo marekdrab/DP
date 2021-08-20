@@ -1,8 +1,5 @@
 //origin posledne cislo je poloha od auta
 //local vektor ak chcem flipnut na opacnu stranu tak posledne cislo na -
-const url = window.location.search;
-const urlParams = new URLSearchParams(url);
-const choice = urlParams.get('choice');
 if(choice=='car'){
 var zadVpravo = {
     direction: new BABYLON.Vector3(0, 0, 1),

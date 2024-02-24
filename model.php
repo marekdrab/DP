@@ -70,6 +70,8 @@ session_start();
 <script src="CarSensors.js"></script>
 <script src="Esentials.js"></script>
 <script src="Bots.js"></script>
+<script src="api.js"></script>
+<script src="sessionManager.js"></script>
 <script src="scene.js"></script>
 
 </body>

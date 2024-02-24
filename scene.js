@@ -9,7 +9,7 @@ var gear;
 
 var createScene = function () {
     /****** Getting choice from URL *******/
-    console.log(choice);
+    // console.log(choice);
 
     var scene = new BABYLON.Scene(engine);
 
@@ -22,8 +22,17 @@ var createScene = function () {
 
     var isTreeReady = false;
 
-
     var switchCam = true;
+
+    //API LOGIN
+    getAccessToken().then((data) => setToSessionStorage(data))
+    // if (!sessionStorage.getItem('model_uploaded')) {
+    //     uploadMatlabModel().then((data) => {
+    //         console.log(data)
+    //         sessionStorage.setItem('model_uploaded', true)
+    //     })
+    // }
+    connect()
 
     /******* Cameras ******/
     // TODO: kamery pre kamion a bus - rozdelovat podla choice
@@ -612,7 +621,7 @@ var createScene = function () {
 
         /******* Animation ******/
         var counter = 0;
-
+        const frameLimit = 10
         scene.registerBeforeRender(function () {
             F = engine.getFps();
 
@@ -623,25 +632,29 @@ var createScene = function () {
 
             // rotate skybox
             skybox.rotate(BABYLON.Axis.Y, 0.0001, BABYLON.Space.LOCAL);
+            if (counter % frameLimit === 6) {
+                //updateParameters(counter % frameLimit)
+                //getNewData()
+            }
 
 
             // start moving bots on scene
-            $.ajax({
-                type: 'GET',
-                url: 'control.php/' + autobusy.busVehicles.length,
-                success: function (msg) {
-                    getPosCoordBus(function (data) {
-                        if (data) {
-                            botsPositions = data;
-                        }
-                    });
-                    if (autobusy.busVehicles) {
-                        for (var i = 0; i < autobusy.busVehicles.length; i++) {
-                            autobusy.startBusMoving(i, botsPositions[i]);
-                        }
-                    }
-                }
-            })
+            // $.ajax({
+            //     type: 'GET',
+            //     url: 'control.php/' + autobusy.busVehicles.length,
+            //     success: function (msg) {
+            //         getPosCoordBus(function (data) {
+            //             if (data) {
+            //                 botsPositions = data;
+            //             }
+            //         });
+            //         if (autobusy.busVehicles) {
+            //             for (var i = 0; i < autobusy.busVehicles.length; i++) {
+            //                 autobusy.startBusMoving(i, botsPositions[i]);
+            //             }
+            //         }
+            //     }
+            // })
 
 
             // check if car is in scene

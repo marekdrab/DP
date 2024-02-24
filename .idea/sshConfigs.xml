@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:15}" host="devs.iolab.sk" id="fd793a75-5620-468e-81d0-0446e5c6a16b" port="22" nameFormat="DESCRIPTIVE" username="drab" />
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:15}" host="devs.iolab.sk" id="fd793a75-5620-468e-81d0-0446e5c6a16b" port="22" nameFormat="DESCRIPTIVE" username="drab" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>

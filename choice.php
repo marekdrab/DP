@@ -89,7 +89,7 @@ session_start();
         </div>
     </form>
 </div>
-<footer class="py-4 bg-dark fixed-bottom">
+<footer class="py-4 bg-dark">
     <div class="container">
         <div class="row align-items-center text-center text-white">
             <div class="col-md-4">

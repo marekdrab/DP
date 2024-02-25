@@ -164,3 +164,5 @@ async function loadWasmModule() {
     const wasmModule = await WebAssembly.instantiateStreaming(response);
     return wasmModule.instance.exports;
 }
+
+

@@ -1,5 +1,6 @@
 <?php
-$results['id'] = 'BouncingBall';
+$results['id'] = 'BouncingBallcross';
+//$results['id'] = 'Unnamed';
 $results['modelMode'] = 'continuous';
 $results['stopTime'] = 4;
 $results['dataSets'] = ["h","e"];
@@ -77,7 +78,6 @@ $results['interval'] = 20;
 <script src="FMU/Gamblegram.js"></script>
 <script src="FMU/Label.js"></script>
 <script src="FMU/Range.js"></script>
-
 <script src="FMU/fmu.js"></script>
 
 <script>
@@ -1053,7 +1053,9 @@ $results['interval'] = 20;
 
             function createModelRuntime(Model, config, functions) {
                 return new Promise((resolve, reject) => {
-                    Model()().ready.then(model => {
+                    console.log(Model());
+                    console.log(Model()());
+                    Model()().then(model => {
                         model.config = config;
                         model.modelIsSetup = false;
                         model.cwrapFunctions = functions.cwrapFunctions.bind(model);
@@ -1900,4 +1902,3 @@ $results['interval'] = 20;
 
 </body>
 </html>
-

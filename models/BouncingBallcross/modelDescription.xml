@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmiModelDescription
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  fmiVersion="2.0"
+  modelName="BouncingBall"
+  guid="{f5341aeb-053c-4754-8e08-d1ab0ca324a6}"
+  generationTool="Dymola Version 2023x, 2022-10-07"
+  generationDateAndTime="2024-03-06T10:06:08Z"
+  variableNamingConvention="structured"
+  numberOfEventIndicators="6">
+  <ModelExchange
+    modelIdentifier="BouncingBall"
+    completedIntegratorStepNotNeeded="true"
+    canNotUseMemoryManagementFunctions="true"
+    canGetAndSetFMUstate="true"
+    canSerializeFMUstate="true"
+    providesDirectionalDerivative="true">
+    <SourceFiles>
+      <File
+        name="all.c"/>
+    </SourceFiles>
+  </ModelExchange>
+  <CoSimulation
+    modelIdentifier="BouncingBall"
+    canHandleVariableCommunicationStepSize="true"
+    canInterpolateInputs="true"
+    maxOutputDerivativeOrder="1"
+    canNotUseMemoryManagementFunctions="true"
+    canGetAndSetFMUstate="true"
+    canSerializeFMUstate="true"
+    providesDirectionalDerivative="true">
+    <SourceFiles>
+      <File
+        name="all.c"/>
+    </SourceFiles>
+  </CoSimulation>
+  <DefaultExperiment startTime="0.0"
+    stopTime="1.0"
+    tolerance="0.0001"/>
+  <ModelVariables>
+    <!-- Index for next variable = 1 -->
+    <ScalarVariable
+      name="e"
+      valueReference="16777216"
+      description="coefficient of restitution"
+      causality="parameter"
+      variability="tunable">
+      <Real start="0.7"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 2 -->
+    <ScalarVariable
+      name="g"
+      valueReference="16777217"
+      description="gravity acceleration"
+      causality="parameter"
+      variability="tunable">
+      <Real start="9.81"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 3 -->
+    <ScalarVariable
+      name="h"
+      valueReference="33554432"
+      description="height of ball"
+      initial="exact">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 4 -->
+    <ScalarVariable
+      name="der(h)"
+      valueReference="587202560"
+      description="der(height of ball)">
+      <Real derivative="3"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 5 -->
+    <ScalarVariable
+      name="v"
+      valueReference="33554433"
+      description="velocity of ball"
+      initial="exact">
+      <Real start="0.0"
+        derivative="3"
+        reinit="true"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 6 -->
+    <ScalarVariable
+      name="der(v)"
+      valueReference="587202561"
+      description="der(velocity of ball)">
+      <Real derivative="5"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 7 -->
+    <ScalarVariable
+      name="flying"
+      valueReference="637534208"
+      description="true, if ball is flying"
+      variability="discrete"
+      initial="exact">
+      <Boolean start="true"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 8 -->
+    <ScalarVariable
+      name="impact"
+      valueReference="637534209"
+      variability="discrete"
+      initial="exact">
+      <Boolean start="false"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 9 -->
+    <ScalarVariable
+      name="v_new"
+      valueReference="637534210"
+      variability="discrete"
+      initial="exact">
+      <Real start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 10 -->
+    <ScalarVariable
+      name="foo"
+      valueReference="905969667"
+      variability="discrete">
+      <Integer/>
+    </ScalarVariable>
+  </ModelVariables>
+  <ModelStructure>
+    <Derivatives>
+      <Unknown index="4"
+        dependencies="5"
+        dependenciesKind="fixed"/>
+      <Unknown index="6"
+        dependencies="3 5"
+        dependenciesKind="dependent dependent"/>
+    </Derivatives>
+    <InitialUnknowns>
+      <Unknown index="4"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="5"
+        dependencies=""
+        dependenciesKind=""/>
+      <Unknown index="6"
+        dependencies="2"
+        dependenciesKind="dependent"/>
+    </InitialUnknowns>
+  </ModelStructure>
+</fmiModelDescription>

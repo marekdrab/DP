@@ -78,7 +78,7 @@ $results['interval'] = 20;
 <script src="FMU/Gamblegram.js"></script>
 <script src="FMU/Label.js"></script>
 <script src="FMU/Range.js"></script>
-<script src="FMU/fmu.js"></script>
+<script src="FMU/fmu_helpers.js"></script>
 
 <script>
 

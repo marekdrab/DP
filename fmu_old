@@ -1,86 +1,3 @@
-<?php
-//$results['id'] = 'BouncingBallcross';
-//$results['id'] = 'Unnamed';
-$results['id'] = 'platoon2b';
-$results['modelMode'] = 'continuous';
-$results['stopTime'] = 400;
-//$results['dataSets'] = ["h","e"];
-$results['dataSets'] = ["car1.y1", "car2.y1", "car3.y1", "car4.y1", "gap1.y", "gap2.y", "gap3.y", "gap4.y", "velocity0.k"];
-$results['stepSize'] = 0.001;
-$results['interval'] = 20;
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulation interface</title>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/slider.css">
-</head>
-<body>
-
-<main>
-    <div class="container-fluid" id="main-container">
-        <div class="d-flex justify-content-between mt-3">
-            <div class="col" style="margin: 0 10px 0 10px;">
-                <button class="btn btn-outline-primary btn-lg" id="play-btn-id"></button>
-                <button class="btn btn-outline-primary btn-lg" id="pause-btn-id"></button>
-                <button class="btn btn-outline-primary btn-lg" id="clear-btn-id"></button>
-                <button class="btn btn-outline-primary btn-lg" id="values-reset-btn-id"></button>
-            </div>
-            <div class="mt-3 col-2">
-                <label for="h0">Počiatočná výška</label>
-                <input type="number" class="form-control init-value" placeholder="h" aria-label="h" id="h0" value="">
-                <div class="slidecontainer">
-                    <label for="range_id" id="range_label_id">e</label>
-                    <input type="range" id="range_id" class="custom-range init-value"/>
-                </div>
-            </div>
-        </div>
-        <div id='spinner-blur' class="mt-3">
-            <div class="flexblocks-item">
-                <div id="chart-id"></div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<!--<div class="mt-3">-->
-<!--<input type="text" class="form-control init-value" placeholder="h0" aria-label="h0" id="h0" value="4">-->
-<!--</div>
-        <div id='spinner-blur' class="mt-3">
-
-            <div class="slidecontainer">-->
-<!--<input type="range" id="range_id" class="custom-range"/>
-                <label id="range_label_id" class="c3279"></label>-->
-<!--</div>
-            <div class="flexblocks-item">
-                <div id="model-id"></div>
-                <div id="chart-id"></div>
-            </div>
-        </div>-->
-
-<script src="js/jquery-3.6.0.min.js"></script>
-<script src="js/createjs.min.js"></script>
-<script src="js/plotly-latest.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootbox.all.min.js"></script>
-
-<script src="FMU/Widget.js"></script>
-<script src="FMU/AnimateRuntime.js"></script>
-<script src="FMU/AnimateAnimContinuous.js"></script>
-<script src="FMU/AnimateAnimControlled.js"></script>
-<script src="FMU/AnimateText.js"></script>
-<script src="FMU/Button.js"></script>
-<script src="FMU/PlotlyBase.js"></script>
-<script src="FMU/PlotlyChart.js"></script>
-<script src="FMU/Gamblegram.js"></script>
-<script src="FMU/Label.js"></script>
-<script src="FMU/Range.js"></script>
-<script src="FMU/fmu_helpers.js"></script>
 <script>
 
     var dataFromXml = [];
@@ -113,7 +30,7 @@ $results['interval'] = 20;
                 canHandleMultipleSetPerTimeInstant: item.canHandleMultipleSetPerTimeInstant
             };
         });
-        console.log(variables)
+
         $.each(dataFromXml.parameters, function (i, item) {
             parameters[item.name] = {
                 name: item.name,
@@ -125,13 +42,14 @@ $results['interval'] = 20;
                 canHandleMultipleSetPerTimeInstant: item.canHandleMultipleSetPerTimeInstant
             };
         });
-        console.log(parameters)
+
         $.each(dataFromXml.arrays, function (i, item) {
             arrays[item.cname] = {
                 cname: item.cname,
                 providers: item.providers
             }
         });
+
         $.each(dataSets, function (i, item) {
             datasets['dataset-' + i] = {
                 id: 'dataset-' + i,
@@ -186,7 +104,6 @@ $results['interval'] = 20;
                 }
             }
         });
-        console.log(datasets)
 
         const mainJS = () => {
             const widgets = []
@@ -1655,7 +1572,6 @@ $results['interval'] = 20;
                     },
                     'setValue': function setValue(reference, value) {
                         //zmena pocas behu
-                        console.log(reference, value)
                         this.setSingleReal(reference, value);
                         this.lastInputValues[reference] = value;
                         this.valueSetters.forEach(item => {
@@ -1693,22 +1609,6 @@ $results['interval'] = 20;
                             }
                             if (listener.index !== null) {
                                 //zapis do listnera
-                                // console.log(JSON.parse(listener.attribute).dataset, this.outputValues.value(listener.index), this.currentStep)
-                                switch (JSON.parse(listener.attribute).dataset) {
-                                    case 'dataset-0':
-                                        localStorage.setItem('dataset-0', this.outputValues.value(listener.index));
-                                        break;
-                                    case 'dataset-1':
-                                        localStorage.setItem('dataset-1', this.outputValues.value(listener.index));
-                                        break;
-                                    case 'dataset-2':
-                                        localStorage.setItem('dataset-2', this.outputValues.value(listener.index));
-                                        break;
-                                    case 'dataset-3':
-                                        localStorage.setItem('dataset-3', this.outputValues.value(listener.index));
-                                        break;
-                                    default:
-                                }
                                 listener.target.setValue(listener.attribute, this.outputValues.value(listener.index), this.currentStep);
                             } else if (listener.indicies !== null) {
                                 listener.target.setArray(listener.attribute, listener.indicies.map(index => this.outputValues.value(index)), this.currentStep);
@@ -1932,11 +1832,6 @@ $results['interval'] = 20;
                         Object.entries(models).forEach(([, model]) => model.init());
                         javascript.onBeforeModelRun.forEach(fn => fn());
                         Object.entries(widgets).forEach(([, widget]) => widget.updateComponent());
-
-                        // Assuming models['model-id'] is your target model and it's ready to play.
-                        // if (models['model-id'] && models['model-id'].play) {
-                        //     models['model-id'].play(); // Automatically trigger play
-                        // }
                     });
                 });
             }
@@ -1948,8 +1843,3 @@ $results['interval'] = 20;
     });
 
 </script>
-
-
-
-</body>
-</html>

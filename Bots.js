@@ -43,6 +43,14 @@ class Bots {
                 speedBot = this.busVehicles[botIndex].speedCar
         }
 
+        let carSpeed = parseInt(localStorage.getItem('car-speed'), 10);
+
+        if (speedBot <= 0.1 ) {
+            if (carSpeed === 0) {
+                speedBot = 0
+            }
+        }
+
         if (this.busVehicles[botIndex].position.x > -this.roadWidth && this.busVehicles[botIndex].position.x < this.roadWidth && this.busVehicles[botIndex].position.z > 0) {
 
             if (this.busVehicles[botIndex].busVehiclesCorrection === true) {

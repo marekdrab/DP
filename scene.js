@@ -916,6 +916,7 @@ var createScene = function () {
 
             traceCarPosition(carPositionX, carPositionZ);
             traceCarSpeed(D, time);
+            localStorage.setItem('car-speed', D);
             traceBotsPosition(autobusy.busVehicles);
             time += 200;
 

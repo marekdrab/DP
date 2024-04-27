@@ -25,14 +25,14 @@ var createScene = function () {
     var switchCam = true;
 
     //API LOGIN
-    getAccessToken().then((data) => setToSessionStorage(data))
+    // getAccessToken().then((data) => setToSessionStorage(data))
     // if (!sessionStorage.getItem('model_uploaded')) {
     //     uploadMatlabModel().then((data) => {
     //         console.log(data)
     //         sessionStorage.setItem('model_uploaded', true)
     //     })
     // }
-    connect()
+    // connect()
 
     /******* Cameras ******/
     // TODO: kamery pre kamion a bus - rozdelovat podla choice
@@ -217,7 +217,7 @@ var createScene = function () {
 
             //tmp set number of bots
         var botsStruct = new BotsStruct();
-        botsStruct.Bus = botsStartPosition.length;
+        botsStruct.Bus = 4;
 
 
         var autobusy = new Bots();
@@ -344,7 +344,7 @@ var createScene = function () {
             var wheelFR = meshes["wheelFR"];
 
             wheelFL.rotate(BABYLON.Axis.X, Math.PI *2, BABYLON.Space.WORLD);
-            wheelFR.rotate(BABYLON.Axis.X, Math.PI *2, BABYLON.Space.WORLD);
+            wheelFR.rotate(BABYLON.Axis.X, -Math.PI *3, BABYLON.Space.WORLD);
 
             var pivotFL = new BABYLON.Mesh("pivotFL", scene);
             pivotFL.parent = carBody;
@@ -366,21 +366,21 @@ var createScene = function () {
             var wheelRR = meshes["wheelRR"]
 
             wheelRL.rotate(BABYLON.Axis.X, Math.PI*2 , BABYLON.Space.WORLD);
-            wheelRR.rotate(BABYLON.Axis.X, Math.PI*2, BABYLON.Space.WORLD);
+            wheelRR.rotate(BABYLON.Axis.X, Math.PI*3, BABYLON.Space.WORLD);
 
-            var pivotRL = new BABYLON.Mesh("pivotRL", scene)
-            pivotRL.parent = carBody;
-            pivotRL.position = new BABYLON.Vector3(1.725, 0.475, -0.95);
+            // var pivotRL = new BABYLON.Mesh("pivotRL", scene)
+            // pivotRL.parent = carBody;
+            // pivotRL.position = new BABYLON.Vector3(1.725, 0.475, -0.95);
+            //
+            // var pivotRR = new BABYLON.Mesh("pivotRR", scene)
+            // pivotRR.parent = carBody;
+            // pivotRR.position = new BABYLON.Vector3(1.725, 0.475, 0.95);
 
-            var pivotRR = new BABYLON.Mesh("pivotRR", scene)
-            pivotRR.parent = carBody;
-            pivotRR.position = new BABYLON.Vector3(1.725, 0.475, 0.95);
+            wheelRL.parent = carBody;
+            wheelRL.position = new BABYLON.Vector3(1.725, 0.475, -0.95);
 
-            wheelRL.parent = pivotRL;
-            wheelRL.position = new BABYLON.Vector3(0, 0, 0);
-
-            wheelRR.parent = pivotRR
-            wheelRR.position = new BABYLON.Vector3(0, 0, 0);
+            wheelRR.parent = carBody
+            wheelRR.position = new BABYLON.Vector3(1.725, 0.475, 0.95);
 
             wheelRL.scaling = new BABYLON.Vector3(1, 0.75, 0.75)
             wheelRR.scaling = new BABYLON.Vector3(1, 0.75, 0.75)
@@ -562,22 +562,29 @@ var createScene = function () {
 
         var D = 0;      // distance translated per frame
         var R = 50;
-        if (choice == 'truck')
-            R = 50// turning radius
+
         var NR;         // new turning radius
         var A = 5.6;    // distance between front and rear tyre
         var L = 9.4;    // distance between each tyre
         var r = 1.5;    // wheel radius
         if (choice == 'truck') {
-            A = 1.9
-            L = 3.45
+            R = 50// turning radius
+            A = 5.6
+            L = 9.4
+            r = 1.5
+        }
+        if (choice === 'bus') {
+            R = 50// turning radius
+            A = 11.2;    // distance between front and rear tyre
+            L = 9.4;    // distance between each tyre
+            r = 1.5;    // wheel radius
         }
         var wheelRotation;  // wheel rotation
         var carRotation;    // car rotation when turning
 
         var F;          // frames per second
 
-        var maxForwardSpeed = 80;       // maximal speed of car
+        var maxForwardSpeed = 60;       // maximal speed of car
         var maxBrakeSpeed = maxForwardSpeed / 50;   // maximal brake speed depending of maximal speed car
 
         var turnBorder = Math.PI / 6;   // maximal turning radius of front wheels
@@ -639,6 +646,11 @@ var createScene = function () {
 
 
             // start moving bots on scene
+            if (autobusy.busVehicles) {
+                for (var i = 0; i < autobusy.busVehicles.length; i++) {
+                    autobusy.startBusMoving(i);
+                }
+            }
             // $.ajax({
             //     type: 'GET',
             //     url: 'control.php/' + autobusy.busVehicles.length,
@@ -724,18 +736,34 @@ var createScene = function () {
                 }
 
                 if ((map["a"] || map["A"]) && -Math.PI / 6 < theta) {
-                    turnCar(-turnTheta, -swTheta);
+                    if (choice === 'bus') {
+                        turnCar(-turnTheta/3, -swTheta/3);
+                    } else {
+                        turnCar(-turnTheta, -swTheta);
+                    }
                 }
 
                 if ((map["d"] || map["D"]) && theta < Math.PI / 6) {
-                    turnCar(turnTheta, swTheta);
+                    if (choice === 'bus') {
+                        turnCar(turnTheta/3, swTheta/3);
+                    } else {
+                        turnCar(turnTheta, swTheta);
+                    }
                 }
 
                 if (!(map["a"] || map["A"]) && !(map["d"] || map["D"]) && theta !== 0) {
                     if (theta > 0) {
-                        turnCar(-turnTheta, -swTheta);
+                        if (choice === 'bus') {
+                            turnCar(-turnTheta/3, -swTheta/3);
+                        } else {
+                            turnCar(-turnTheta, -swTheta);
+                        }
                     } else if (theta < 0) {
-                        turnCar(turnTheta, swTheta);
+                        if (choice === 'bus') {
+                            turnCar(turnTheta/3, swTheta/3);
+                        } else {
+                            turnCar(turnTheta, swTheta);
+                        }
                     }
                 }
             }
@@ -874,6 +902,7 @@ var createScene = function () {
             // Update text info every frame
             stackPanel.fpsText.text = "FPS: " + F.toFixed(0);
             stackPanel.speedCarText.text = "Rýchlosť: " + Math.abs(D).toFixed(0) + " km/h";
+            localStorage.setItem('car-speed', D)
         });
 
         // Set values to graphs

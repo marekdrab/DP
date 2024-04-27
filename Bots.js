@@ -24,14 +24,82 @@ class Bots {
 
     }
 
-    startBusMoving(botIndex,coords) {
+    startBusMoving(botIndex) {
+        var speedBot
+        switch (botIndex) {
+            case 0:
+                speedBot = localStorage.getItem('dataset-0')/100
+                break
+            case 1:
+                speedBot = localStorage.getItem('dataset-1')/100
+                break
+            case 2:
+                speedBot = localStorage.getItem('dataset-2')/100
+                break
+            case 3:
+                speedBot = localStorage.getItem('dataset-3')/100
+                break
+            default:
+                speedBot = this.busVehicles[botIndex].speedCar
+        }
 
-        this.busVehicles[botIndex].position.x = Math.round(coords.x * 100) / 100;
-        this.busVehicles[botIndex].position.z = Math.round(coords.z * 100) / 100;
-        this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, coords.r, BABYLON.Space.LOCAL);
-        // console.log(coords.x)
-        // console.log(coords.z)
-        // console.log(coords.r)
+        if (this.busVehicles[botIndex].position.x > -this.roadWidth && this.busVehicles[botIndex].position.x < this.roadWidth && this.busVehicles[botIndex].position.z > 0) {
+
+            if (this.busVehicles[botIndex].busVehiclesCorrection === true) {
+                this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, -(this.busVehicles[botIndex].sumAngle + 2 * Math.PI), BABYLON.Space.LOCAL);
+                this.busVehicles[botIndex].position.x = this.roadWidth;
+                this.busVehicles[botIndex].position.z = this.roadHeight;
+
+                this.busVehicles[botIndex].sumAngle = 0;
+                this.busVehicles[botIndex].busVehiclesCorrection = false;
+            }
+
+
+            this.busVehicles[botIndex].translate(BABYLON.Axis.X, -speedBot, BABYLON.Space.LOCAL);
+            this.busVehicles[botIndex].position.x = Math.round(this.busVehicles[botIndex].position.x * 100) / 100;
+            this.busVehicles[botIndex].position.z = Math.round(this.busVehicles[botIndex].position.z * 100) / 100;
+
+            this.busVehicles[botIndex].turnInterval = 0;
+
+        } else if (this.busVehicles[botIndex].position.x <= -this.roadWidth || this.busVehicles[botIndex].position.x >= this.roadWidth) {
+            this.busVehicles[botIndex].busVehiclesCorrection = true;
+            const epsilon = 0.01;
+
+            if (this.busVehicles[botIndex].turnInterval % 2 === 0) {
+                // console.log('angle', -this.busVehicles[botIndex].turnAngle)
+                this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, -this.busVehicles[botIndex].turnAngle, BABYLON.Space.LOCAL);
+                this.busVehicles[botIndex].sumAngle += -this.busVehicles[botIndex].turnAngle;
+            }
+            this.busVehicles[botIndex].translate(BABYLON.Axis.X, -speedBot, BABYLON.Space.LOCAL);
+
+            speedBot = speedBot.toFixed(1);
+            var turnInterval = Number((1 - speedBot) + 0.2)
+            // turnInterval.toFixed(1)
+            // console.log(botIndex, speedBot, turnInterval)
+
+            this.busVehicles[botIndex].speedBotSum += (1 - speedBot) + 0.2;
+            this.busVehicles[botIndex].turnInterval += 0.5;
+            // this.busVehicles[botIndex].turnInterval += turnInterval;
+            // this.busVehicles[botIndex].turnInterval = Number(this.busVehicles[botIndex].turnInterval.toFixed())
+            // console.log(botIndex, this.busVehicles[botIndex].turnInterval)
+
+        } else if (this.busVehicles[botIndex].position.x > -this.roadWidth && this.busVehicles[botIndex].position.x < this.roadWidth && this.busVehicles[botIndex].position.z < 0) {
+            if (this.busVehicles[botIndex].busVehiclesCorrection === true) {
+                this.busVehicles[botIndex].rotate(BABYLON.Axis.Y, -(this.busVehicles[botIndex].sumAngle + Math.PI), BABYLON.Space.LOCAL);
+                this.busVehicles[botIndex].position.x = -this.roadWidth;
+                this.busVehicles[botIndex].position.z = -this.roadHeight;
+
+                this.busVehicles[botIndex].busVehiclesCorrection = false;
+            }
+
+            this.busVehicles[botIndex].translate(BABYLON.Axis.X, -speedBot, BABYLON.Space.LOCAL);
+            this.busVehicles[botIndex].position.x = Math.round(this.busVehicles[botIndex].position.x * 100) / 100;
+            this.busVehicles[botIndex].position.z = Math.round(this.busVehicles[botIndex].position.z * 100) / 100;
+
+            this.busVehicles[botIndex].turnInterval = 0;
+        }
+
+        // console.log(botIndex,speedBot)
 
         var botWheels = this.busVehicles[botIndex].getChildMeshes();
         for (var i = 0; i < botWheels.length; i++) {
@@ -76,8 +144,9 @@ class Bots {
             cloneBot.busVehiclesCorrection = Math.abs(botsStartPosition[i].z) !== 300;
             cloneBot.sumAngle = botsStartPosition[i].r;
             cloneBot.turnInterval = 0;
-            cloneBot.turnAngle = Math.PI / 589;
+            cloneBot.turnAngle = Math.PI / 680;
             cloneBot.speedCar = 0.8;
+            cloneBot.speedBotSum = 0;
 
             this.busVehicles[i] = cloneBot;
         }

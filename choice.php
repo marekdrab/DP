@@ -77,10 +77,10 @@ session_start();
         </div>
         <br>
         <div class="row justify-content-center">
-            <div class="col-md-4 text-center">
-                <h3><?= $lang['bot-count']?></h3>
-                <input class="form-control mb-3 mt-3" type="number" id="bots" name="bots" min="1" max="10" required>
-            </div>
+<!--            <div class="col-md-4 text-center">-->
+<!--                <h3>--><?php //= $lang['bot-count']?><!--</h3>-->
+<!--                <input class="form-control mb-3 mt-3" type="number" id="bots" name="bots" min="1" max="10" required>-->
+<!--            </div>-->
         </div>
         <div class="row">
             <div class="col-md-12 text-center">

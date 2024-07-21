@@ -67,7 +67,7 @@ async function uploadMatlabModel(modelName = 'model_drab.slx') {
             throw new Error(`Request failed with status: ${response.status}`);
         }
 
-         // Assuming the response is in JSON format, adjust as needed
+        // Assuming the response is in JSON format, adjust as needed
         return await response.json();
     } catch (error) {
         console.error('Error:', error);
@@ -76,9 +76,9 @@ async function uploadMatlabModel(modelName = 'model_drab.slx') {
 }
 
 // /matlab/model-run/block/param - PUT
-function updateParameters(newValue = 8) {
+function updateParameters(newValue = 0) {
     const url = API_URL + '/matlab/model_drab.slx/Gain/Gain';
-    const queryParams = $.param({ new_value: newValue });
+    const queryParams = $.param({new_value: newValue});
     const token = sessionStorage.getItem('access_token');
 
     $.ajax({
@@ -129,7 +129,6 @@ function connect() {
     var email = {
         value: 'xdrabm@stuba.sk'
     }
-    // ws = new WebSocket("wss://apis.iolab.sk/matlab/ws?email=" + email.value);
     ws = new WebSocket("ws://147.175.98.26/matlab/ws?email=" + email.value);
     ws.onopen = async (event) => {
         console.log('connected')
@@ -138,9 +137,6 @@ function connect() {
     ws.onmessage = function (event) {
         var data_arr = event.data.split(":")
         console.log(data_arr)
-        // var textarea = document.getElementById(data_arr[0])
-        // textarea.append(data_arr[1])
-        // textarea.append('\r\n')
     }
     ws.onerror = function (error) {
         console.error('WebSocket Error:', error)
@@ -160,22 +156,12 @@ function sendMessage() {
         value: 'Gain'
     }
 
-    // blocks_arr = blocks.value.split(",")
-    // var div = document.getElementById("blocks_data")
-    // blocks_arr.forEach(block => {
-    //     var block_name = document.createElement("label");
-    //     block_name.innerHTML = block;
-    //     div.appendChild(block_name);
-    //     var input = document.createElement("textarea");
-    //     input.id = block;
-    //     input.rows = "4";
-    //     input.className = "form-control";
-    //     div.appendChild(input);
-    // });
+
     ws.send(blocks.value)
     console.log(ws)
-    // event.preventDefault()
+
 }
+
 //FMU POST - model
 
 //FMU

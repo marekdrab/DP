@@ -14,7 +14,6 @@ class Bots {
         //struktura bots bude: Bus : 1 , Car : 2, ...
 
         if (botsStruct.Bus > 0) {
-            // console.log(botsStruct)
             this.createBus(botsMeshes.Bus, botsStruct.Bus)
         }
 
@@ -25,23 +24,8 @@ class Bots {
     }
 
     startBusMoving(botIndex) {
-        var speedBot
-        switch (botIndex) {
-            case 0:
-                speedBot = localStorage.getItem('dataset-0')/100
-                break
-            case 1:
-                speedBot = localStorage.getItem('dataset-1')/100
-                break
-            case 2:
-                speedBot = localStorage.getItem('dataset-2')/100
-                break
-            case 3:
-                speedBot = localStorage.getItem('dataset-3')/100
-                break
-            default:
-                speedBot = this.busVehicles[botIndex].speedCar
-        }
+
+        let speedBot = parseFloat(localStorage.getItem('dataset-' + botIndex)) / 100;
 
         let carSpeed = parseInt(localStorage.getItem('car-speed'), 10);
 

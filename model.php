@@ -2,9 +2,9 @@
 include "config.php";
 session_start();
 $results['id'] = 'platoon2b';
-$results['modelMode'] = 'continuous';
+$results['modelMode'] = 'oneshot';
 $results['stopTime'] = 400;
-$results['dataSets'] = ["car1.y1", "car2.y1", "car3.y1", "car4.y1", "velocity0.k"];
+$results['dataSets'] = ["car1.y1", "car2.y1", "car3.y1", "car4.y1", "velocity0.k", "gap1.y", "gap2.y", "gap3.y", "gap4.y"];
 $results['stepSize'] = 0.01;
 $results['interval'] = 20;
 ?>
@@ -56,13 +56,14 @@ $results['interval'] = 20;
 <!--            <div id="rear-sensor"></div>-->
 <!--        </div>-->
 <!--    </div>-->
-    <div id="chart-id"></div>
     <h6><?= $lang['graph3'] ?></h6>
     <div id="botPosition" class="graph-section"></div>
+<!--    <div id="chart-id"></div>-->
     <h6><?= $lang['graph1'] ?></h6>
     <div id="carPosition" class="graph-section"></div>
     <h6><?= $lang['graph2'] ?></h6>
     <div id="carSpeed" class="graph-section"></div>
+<!--    <div id="chart-id"></div>-->
     <div class="lang-section">
         <a href="model.php?choice=<?= $_SESSION['select'] ?>&lang=en"><img src="img/en.png" class="img-fluid pr-3"
                                                                            alt="EN"></a>
@@ -1685,7 +1686,6 @@ $results['interval'] = 20;
                         //         value = localStorage.getItem('input-3')                                break;
                         //     default:
                         // }
-                        console.log(reference, value)
                         this.setSingleReal(reference, value);
                         this.lastInputValues[reference] = value;
                         this.valueSetters.forEach(item => {
@@ -1694,7 +1694,7 @@ $results['interval'] = 20;
                             }
                             item.setter.setValue(item.attribute, value, this.currentStep);
                         });
-                        console.log('test' + reference, value)
+                        // console.log('test' + reference, value)
                     },
                     'modelTick': function modelTick() {
                         this.updateValueListeners(true);
@@ -1723,7 +1723,6 @@ $results['interval'] = 20;
                             }
                             if (listener.index !== null) {
                                 //zapis do listnera
-                                // console.log(JSON.parse(listener.attribute).dataset, this.outputValues.value(listener.index), this.currentStep)
                                 switch (JSON.parse(listener.attribute).dataset) {
                                     case 'dataset-0':
                                         localStorage.setItem('dataset-0', this.outputValues.value(listener.index));
@@ -1950,28 +1949,27 @@ $results['interval'] = 20;
                 return promises;
             }
 
-            function init_old() {
-                createjs.Ticker.framerate = animateFps;
-                Promise.all([
-                    Promise.all(initValueProviders()),
-                    Promise.all(initAnimates())
-                ]).then(() => {
-                    Promise.all([initWidgets()]).then(() => {
-                        resolveValueProviders();
+            // function init_old() {
+            //     createjs.Ticker.framerate = animateFps;
+            //     Promise.all([
+            //         Promise.all(initValueProviders()),
+            //         Promise.all(initAnimates())
+            //     ]).then(() => {
+            //         Promise.all([initWidgets()]).then(() => {
+            //             resolveValueProviders();
+            //
+            //             Object.entries(models).forEach(([, model]) => model.init());
+            //             javascript.onBeforeModelRun.forEach(fn => fn());
+            //             Object.entries(widgets).forEach(([, widget]) => widget.updateComponent());
+            //
+            //             // Assuming models['model-id'] is your target model and it's ready to play.
+            //             if (models['model-id'] && models['model-id'].play) {
+            //                 models['model-id'].play(); // Automatically trigger play
+            //             }
+            //         });
+            //     });
+            // }
 
-                        Object.entries(models).forEach(([, model]) => model.init());
-                        javascript.onBeforeModelRun.forEach(fn => fn());
-                        Object.entries(widgets).forEach(([, widget]) => widget.updateComponent());
-
-                        // Assuming models['model-id'] is your target model and it's ready to play.
-                        console.log(1)
-                        if (models['model-id'] && models['model-id'].play) {
-                            console.log(2)
-                            models['model-id'].play(); // Automatically trigger play
-                        }
-                    });
-                });
-            }
             function updateSimulationInputs() {
                 const newValue = localStorage.getItem('car-speed')
                 if (models['model-id'] && models['model-id'].setValue) {
@@ -2007,7 +2005,6 @@ $results['interval'] = 20;
                                     models['model-id'].pause(); // Call the pause function of the model
                                     console.log('Simulation paused.');
                                     clearInterval(Number(localStorage.getItem('intervalId')))
-                                    // Optionally, you can also toggle the visibility of buttons here.
                                 }
                             });
                         }

@@ -1,13 +1,12 @@
 <?php
-//$results['id'] = 'BouncingBallcross';
-//$results['id'] = 'Unnamed';
+
 $results['id'] = 'platoon2b';
 $results['modelMode'] = 'continuous';
 $results['stopTime'] = 400;
-//$results['dataSets'] = ["h","e"];
 $results['dataSets'] = ["car1.y1", "car2.y1", "car3.y1", "car4.y1", "gap1.y", "gap2.y", "gap3.y", "gap4.y", "velocity0.k"];
 $results['stepSize'] = 0.001;
 $results['interval'] = 20;
+
 ?>
 
 <!DOCTYPE html>

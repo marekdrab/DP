@@ -2,7 +2,7 @@
 include "config.php";
 session_start();
 $results['id'] = 'platoon2b';
-$results['modelMode'] = 'oneshot';
+$results['modelMode'] = 'continuous';
 $results['stopTime'] = 400;
 $results['dataSets'] = ["car1.y1", "car2.y1", "car3.y1", "car4.y1", "velocity0.k", "gap1.y", "gap2.y", "gap3.y", "gap4.y"];
 $results['stepSize'] = 0.01;
@@ -58,12 +58,12 @@ $results['interval'] = 20;
 <!--    </div>-->
     <h6><?= $lang['graph3'] ?></h6>
     <div id="botPosition" class="graph-section"></div>
-<!--    <div id="chart-id"></div>-->
+    <div id="chart-id"></div> <!-- NEMAZAT ANI NEKOMENTOVAT -->
     <h6><?= $lang['graph1'] ?></h6>
     <div id="carPosition" class="graph-section"></div>
     <h6><?= $lang['graph2'] ?></h6>
     <div id="carSpeed" class="graph-section"></div>
-<!--    <div id="chart-id"></div>-->
+
     <div class="lang-section">
         <a href="model.php?choice=<?= $_SESSION['select'] ?>&lang=en"><img src="img/en.png" class="img-fluid pr-3"
                                                                            alt="EN"></a>
@@ -1723,6 +1723,7 @@ $results['interval'] = 20;
                             }
                             if (listener.index !== null) {
                                 //zapis do listnera
+                                console.log(listener.index)
                                 switch (JSON.parse(listener.attribute).dataset) {
                                     case 'dataset-0':
                                         localStorage.setItem('dataset-0', this.outputValues.value(listener.index));
@@ -1995,7 +1996,7 @@ $results['interval'] = 20;
                         if (models['model-id'] && models['model-id'].play) {
                             models['model-id'].play(); // Automatically trigger play
                             // Call `updateSimulationInputs` every 1000 milliseconds (1 second)
-                            localStorage.setItem('intervalId', String(setInterval(updateSimulationInputs, 100)))
+                            // localStorage.setItem('intervalId', String(setInterval(updateSimulationInputs, 100)))
                         }
                         // Add event listener to the restartModel button to pause the model.
                         const stopModel = document.getElementById('stopModel');

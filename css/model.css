@@ -26,8 +26,8 @@ html, body {
 }
 
 .graph-section {
-    width: auto;
-    height: 23%;
+    width: auto !important;
+    height: 23% !important;
 }
 
 .lang-section {

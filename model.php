@@ -58,7 +58,7 @@ $results['interval'] = 20;
 <!--    </div>-->
     <h6><?= $lang['graph3'] ?></h6>
     <div id="botPosition" class="graph-section"></div>
-    <div id="chart-id"></div> <!-- NEMAZAT ANI NEKOMENTOVAT -->
+    <div id="chart-id" class="graph-section"></div> <!-- NEMAZAT ANI NEKOMENTOVAT -->
     <h6><?= $lang['graph1'] ?></h6>
     <div id="carPosition" class="graph-section"></div>
     <h6><?= $lang['graph2'] ?></h6>

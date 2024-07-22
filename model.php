@@ -1996,7 +1996,7 @@ $results['interval'] = 20;
                         if (models['model-id'] && models['model-id'].play) {
                             models['model-id'].play(); // Automatically trigger play
                             // Call `updateSimulationInputs` every 1000 milliseconds (1 second)
-                            // localStorage.setItem('intervalId', String(setInterval(updateSimulationInputs, 100)))
+                            localStorage.setItem('intervalId', String(setInterval(updateSimulationInputs, 100)))
                         }
                         // Add event listener to the restartModel button to pause the model.
                         const stopModel = document.getElementById('stopModel');

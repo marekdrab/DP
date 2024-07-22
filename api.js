@@ -1,6 +1,6 @@
 const API_URL = 'https://apis.iolab.sk'
 const USERNAME = 'xdrabm@stuba.sk'
-const PASSWORD = '**heslo123'
+const PASSWORD = '' //**heslo123
 
 async function getAccessToken() {
     try {

@@ -1,9 +1,9 @@
 <?php
 
-$results['id'] = 'platoon2b';
-$results['modelMode'] = 'continuous';
-$results['stopTime'] = 400;
-$results['dataSets'] = ["car1.y1", "car2.y1", "car3.y1", "car4.y1", "gap1.y", "gap2.y", "gap3.y", "gap4.y", "velocity0.k"];
+$results['id'] = 'BouncingBall';
+$results['modelMode'] = 'oneshot';
+$results['stopTime'] = 4;
+$results['dataSets'] = ["h","e"];
 $results['stepSize'] = 0.001;
 $results['interval'] = 20;
 
@@ -1691,23 +1691,6 @@ $results['interval'] = 20;
                                 return;
                             }
                             if (listener.index !== null) {
-                                //zapis do listnera
-                                // console.log(JSON.parse(listener.attribute).dataset, this.outputValues.value(listener.index), this.currentStep)
-                                switch (JSON.parse(listener.attribute).dataset) {
-                                    case 'dataset-0':
-                                        localStorage.setItem('dataset-0', this.outputValues.value(listener.index));
-                                        break;
-                                    case 'dataset-1':
-                                        localStorage.setItem('dataset-1', this.outputValues.value(listener.index));
-                                        break;
-                                    case 'dataset-2':
-                                        localStorage.setItem('dataset-2', this.outputValues.value(listener.index));
-                                        break;
-                                    case 'dataset-3':
-                                        localStorage.setItem('dataset-3', this.outputValues.value(listener.index));
-                                        break;
-                                    default:
-                                }
                                 listener.target.setValue(listener.attribute, this.outputValues.value(listener.index), this.currentStep);
                             } else if (listener.indicies !== null) {
                                 listener.target.setArray(listener.attribute, listener.indicies.map(index => this.outputValues.value(index)), this.currentStep);
@@ -1933,9 +1916,9 @@ $results['interval'] = 20;
                         Object.entries(widgets).forEach(([, widget]) => widget.updateComponent());
 
                         // Assuming models['model-id'] is your target model and it's ready to play.
-                        // if (models['model-id'] && models['model-id'].play) {
-                        //     models['model-id'].play(); // Automatically trigger play
-                        // }
+                        if (models['model-id'] && models['model-id'].play) {
+                            models['model-id'].play(); // Automatically trigger play
+                        }
                     });
                 });
             }

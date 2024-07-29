@@ -23,22 +23,6 @@ $results['interval'] = 20;
 
 <main>
     <div class="container-fluid" id="main-container">
-<!--        <div class="d-flex justify-content-between mt-3">-->
-<!--            <div class="col" style="margin: 0 10px 0 10px;">-->
-<!--                <button class="btn btn-outline-primary btn-lg" id="play-btn-id"></button>-->
-                <button class="btn btn-outline-primary btn-lg" id="pause-btn-id"></button>
-<!--                <button class="btn btn-outline-primary btn-lg" id="clear-btn-id"></button>-->
-<!--                <button class="btn btn-outline-primary btn-lg" id="values-reset-btn-id"></button>-->
-<!--            </div>-->
-<!--            <div class="mt-3 col-2">-->
-<!--                <label for="h0">Počiatočná výška</label>-->
-<!--                <input type="number" class="form-control init-value" placeholder="h" aria-label="h" id="h0" value="">-->
-<!--                <div class="slidecontainer">-->
-<!--                    <label for="range_id" id="range_label_id">e</label>-->
-<!--                    <input type="range" id="range_id" class="custom-range init-value"/>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
         <div id='spinner-blur' class="mt-3">
             <div class="flexblocks-item">
                 <div id="chart-id"></div>
@@ -46,21 +30,6 @@ $results['interval'] = 20;
         </div>
     </div>
 </main>
-
-<!--<div class="mt-3">-->
-<!--<input type="text" class="form-control init-value" placeholder="h0" aria-label="h0" id="h0" value="4">-->
-<!--</div>
-        <div id='spinner-blur' class="mt-3">
-
-            <div class="slidecontainer">-->
-<!--<input type="range" id="range_id" class="custom-range"/>
-                <label id="range_label_id" class="c3279"></label>-->
-<!--</div>
-            <div class="flexblocks-item">
-                <div id="model-id"></div>
-                <div id="chart-id"></div>
-            </div>
-        </div>-->
 
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/createjs.min.js"></script>
@@ -192,16 +161,7 @@ $results['interval'] = 20;
             const config = {widgets: {}}
             const WidgetType = {
                 'MODEL': 'MODEL',
-                'ANIMATE': 'ANIMATE',
-                'ANIMATE_ANIM': 'ANIMATE_ANIM',
-                'ANIMATE_TEXT': 'ANIMATE_TEXT',
-                'RANGE': 'RANGE',
-                'BUTTON': 'BUTTON',
-                'ACTION': 'ACTION',
-                'TOGGLE': 'TOGGLE',
                 'CHART': 'CHART',
-                'LABEL': 'LABEL',
-                'CSS': 'CSS',
                 'JAVASCRIPT': 'JAVASCRIPT'
             }
             const ProviderType = {
@@ -233,495 +193,6 @@ $results['interval'] = 20;
                 }
             }
 
-            const animates = {}
-
-            function createAnimateRuntime(name, source, target, id) {
-                return new Promise(resolve => {
-                    const runtime = new AnimateRuntime(name, source, id);
-                    runtime.init(target).then(() => {
-                        resolve(runtime);
-                    });
-                });
-            }
-
-            config.widgets.animateAnims = {}
-
-            function initAnimateAnimsContinuous() {
-                return new Promise(resolve => {
-                    const animatelist = config.widgets.animateAnims;
-                    Object.entries(animatelist).forEach(([animateId, widgetlist]) => {
-                        const animate = animates[animateId];
-                        Object.entries(widgetlist.continuous).forEach(([id, configuration]) => {
-                            configuration.animate = animate;
-                            try {
-                                const widget = new AnimateAnimContinuous(configuration);
-                                if (widget.constructed === true) {
-                                    widgets[configuration.id] = widget;
-                                }
-                            } catch (e) {
-                                if (e instanceof ReferenceError) {
-                                    console.warn(e.message);
-                                } else {
-                                    console.warn(e);
-                                }
-                            }
-                        });
-                    });
-                    resolve();
-                });
-            }
-
-            function initAnimateAnimsControlled() {
-                return new Promise(resolve => {
-                    const animatelist = config.widgets.animateAnims;
-                    Object.entries(animatelist).forEach(([animateId, widgetlist]) => {
-                        const animate = animates[animateId];
-                        Object.entries(widgetlist.controlled).forEach(([id, configuration]) => {
-                            configuration.animate = animate;
-                            try {
-                                const widget = new AnimateAnimControlled(configuration);
-                                if (widget.constructed === true) {
-                                    widgets[configuration.id] = widget;
-                                }
-                            } catch (e) {
-                                if (e instanceof ReferenceError) {
-                                    console.warn(e.message);
-                                } else {
-                                    console.warn(e);
-                                }
-                            }
-                        });
-                    });
-                    resolve();
-                });
-            }
-
-            function initAnimatePlays() {
-                return new Promise(resolve => {
-                    Object.entries(animates).forEach(([id, animate]) => {
-                        if (animate.components === undefined) {
-                            return;
-                        }
-                        animate.components.play.forEach(play => {
-                            play.onTick = evtObj => {
-                                play._tick(evtObj);
-                            };
-                            createjs.Ticker.addEventListener('tick', play.onTick);
-                        });
-                    });
-                });
-            }
-
-            config.widgets.animateTexts = {}
-
-            function initAnimateTexts() {
-                return new Promise(resolve => {
-                    const animatelist = config.widgets.animateTexts;
-                    Object.entries(animatelist).forEach(([animateName, widgetlist]) => {
-                        const animate = animates[animateName];
-                        Object.entries(widgetlist).forEach(([name, configuration]) => {
-                            configuration.animate = animate;
-                            try {
-                                widgets[configuration.id] = new AnimateText(configuration);
-                            } catch (e) {
-                                if (e instanceof ReferenceError) {
-                                    console.warn(e.message);
-                                } else {
-                                    throw e;
-                                }
-                            }
-                        });
-                    });
-                    resolve();
-                });
-            }
-
-            config.widgets.buttons = {
-                'values-reset-btn-id': {
-                    'name': 'Reset with new values',
-                    'mode': 'click',
-                    'target': {
-                        'value': null,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null,
-                        'typeof': false
-                    },
-                    'events': [
-                        'click',
-                        'press',
-                        'release'
-                    ],
-                    'actions': {
-                        '4e10d64d-9e2c-4c26-9cc7-27fdcb26d288': {
-                            'id': '4e10d64d-9e2c-4c26-9cc7-27fdcb26d288',
-                            'event': 'click',
-                            'function': function () {
-                                config.actions['new-values-reset-action-id'].bind(this)(getModelByID('model-id'));
-                            }
-                        }
-                    },
-                    'attributes': [
-                        'label',
-                        'enabled',
-                        'visible',
-                        'onClick',
-                        'onPress',
-                        'onRelease'
-                    ],
-                    'label': {
-                        'typeof': 'string',
-                        'value': 'Reset with new values',
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'enabled': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'visible': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onClick': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onPress': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onRelease': {
-                        'typeof': 'number',
-                        'value': 0,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'id': 'values-reset-btn-id'
-                },
-                'play-btn-id': {
-                    'name': 'Spustiť',
-                    'mode': 'click',
-                    'target': {
-                        'value': null,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null,
-                        'typeof': false
-                    },
-                    'events': [
-                        'click',
-                        'press',
-                        'release'
-                    ],
-                    'actions': {
-                        '4e10d64d-9e2c-4c26-9cc7-27fdcb26d288': {
-                            'id': '4e10d64d-9e2c-4c26-9cc7-27fdcb26d288',
-                            'event': 'click',
-                            'function': function () {
-                                config.actions['play-action-id'].bind(this)(getModelByID('model-id'));
-                            }
-                        }
-                    },
-                    'attributes': [
-                        'label',
-                        'enabled',
-                        'visible',
-                        'onClick',
-                        'onPress',
-                        'onRelease'
-                    ],
-                    'label': {
-                        'typeof': 'string',
-                        'value': 'Start',
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'enabled': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'visible': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onClick': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onPress': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onRelease': {
-                        'typeof': 'number',
-                        'value': 0,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'id': 'play-btn-id'
-                },
-                'pause-btn-id': {
-                    'name': 'Stop',
-                    'mode': 'click',
-                    'target': {
-                        'value': null,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null,
-                        'typeof': false
-                    },
-                    'events': [
-                        'click',
-                        'press',
-                        'release'
-                    ],
-                    'actions': {
-                        'b19f8271-636e-4084-8d5d-6cbe115b77f4': {
-                            'id': 'b19f8271-636e-4084-8d5d-6cbe115b77f4',
-                            'event': 'click',
-                            'function': function () {
-                                config.actions['pause-action-id'].bind(this)(getModelByID('model-id'));
-                            }
-                        }
-                    },
-                    'attributes': [
-                        'label',
-                        'enabled',
-                        'visible',
-                        'onClick',
-                        'onPress',
-                        'onRelease'
-                    ],
-                    'label': {
-                        'typeof': 'string',
-                        'value': 'Stop',
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'enabled': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'visible': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onClick': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onPress': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onRelease': {
-                        'typeof': 'number',
-                        'value': 0,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'id': 'pause-btn-id'
-                },
-                'clear-btn-id': {
-                    'name': 'Reset',
-                    'mode': 'click',
-                    'target': {
-                        'value': null,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null,
-                        'typeof': false
-                    },
-                    'events': [
-                        'click',
-                        'press',
-                        'release'
-                    ],
-                    'actions': {
-                        'c27b7919-95e0-408c-aba6-988e0bf12621': {
-                            'id': 'c27b7919-95e0-408c-aba6-988e0bf12621',
-                            'event': 'click',
-                            'function': function () {
-                                config.actions['graf-clear-action-id'].bind(this)(getChartByID('chart-id'));
-                            }
-                        },
-                        '4e544e0c-b71a-4e7d-8745-11c18715c111': {
-                            'id': '4e544e0c-b71a-4e7d-8745-11c18715c111',
-                            'event': 'click',
-                            'function': function () {
-                                config.actions['initial-reset-action-id'].bind(this)(getModelByID('model-id'));
-                            }
-                        }
-                    },
-                    'attributes': [
-                        'label',
-                        'enabled',
-                        'visible',
-                        'onClick',
-                        'onPress',
-                        'onRelease'
-                    ],
-                    'label': {
-                        'typeof': 'string',
-                        'value': 'Reset',
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'enabled': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'visible': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onClick': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onPress': {
-                        'typeof': 'number',
-                        'value': 1,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'onRelease': {
-                        'typeof': 'number',
-                        'value': 0,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'id': 'clear-btn-id'
-                }
-            }
-
-            function initButtons() {
-                return new Promise(resolve => {
-                    const buttons = config.widgets.buttons;
-                    Object.entries(buttons).forEach(([name, configuration]) => {
-                        let button;
-                        try {
-                            button = new Button(configuration);
-                        } catch (e) {
-                            if (e instanceof ReferenceError) {
-                                console.warn(e.message);
-                                return;
-                            } else {
-                                throw e;
-                            }
-                        }
-                        widgets[button.id] = button;
-                    });
-                    resolve();
-                });
-            }
 
             config.widgets.charts = {
                 'chart-id': {
@@ -894,136 +365,6 @@ $results['interval'] = 20;
                             }
                         }
                         widgets[chart.id] = chart;
-                    });
-                    resolve();
-                });
-            }
-
-            config.widgets.labels = {}
-
-            function initLabels() {
-                return new Promise(resolve => {
-                    const labels = config.widgets.labels;
-                    Object.entries(labels).forEach(([name, configuration]) => {
-                        let label;
-                        try {
-                            label = new Label(configuration);
-                        } catch (e) {
-                            if (e instanceof ReferenceError) {
-                                console.warn(e.message);
-                                return;
-                            } else {
-                                throw e;
-                            }
-                        }
-                        widgets[label.id] = label;
-                    });
-                    resolve();
-                });
-            }
-
-            config.widgets.ranges = {
-                'range_id': {
-                    'name': 'e',
-                    'target': {
-                        'value': null,
-                        'provider': '{"type":"MP","id":"e","parent":"model-id"}',
-                        'array': !1,
-                        'indexes': null,
-                        'function': null,
-                        'typeof': 'number'
-                    },
-                    'events': ["change"],
-                    'actions': {},
-                    'vertical': {
-                        'typeof': 'boolean',
-                        'value': !1,
-                        'complex': !1,
-                        'provider': null,
-                        'array': !1,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'attributes': ["enabled", "min", "max", "reversed"],
-                    'enabled': {
-                        'typeof': 'boolean',
-                        'value': !0,
-                        'complex': !1,
-                        'provider': null,
-                        'array': !1,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'reversed': {
-                        'typeof': 'boolean',
-                        'value': !1,
-                        'complex': !1,
-                        'provider': null,
-                        'array': !1,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'min': {
-                        'typeof': 'number',
-                        'value': '0',
-                        'complex': !1,
-                        'provider': null,
-                        'array': !1,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'max': {
-                        'typeof': 'number',
-                        'value': '10',
-                        'complex': !1,
-                        'provider': null,
-                        'array': !1,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'id': 'range_id'
-                },
-            }
-
-            function initRanges() {
-                return new Promise(resolve => {
-                    const ranges = config.widgets.ranges;
-                    Object.entries(ranges).forEach(([name, configuration]) => {
-                        let range;
-                        try {
-                            range = new Range(configuration);
-                        } catch (e) {
-                            if (e instanceof ReferenceError) {
-                                console.warn(e.message);
-                                return;
-                            } else {
-                                throw e;
-                            }
-                        }
-                        widgets[range.id] = range;
-                    });
-                    resolve();
-                });
-            }
-
-            config.widgets.toggles = {}
-
-            function initToggles() {
-                return new Promise(resolve => {
-                    const toggles = config.widgets.toggles;
-                    Object.entries(toggles).forEach(([name, configuration]) => {
-                        let toggle;
-                        try {
-                            toggle = new Toggle(configuration);
-                        } catch (e) {
-                            if (e instanceof ReferenceError) {
-                                console.warn(e.message);
-                                return;
-                            } else {
-                                throw e;
-                            }
-                        }
-                        widgets[toggle.id] = toggle;
                     });
                     resolve();
                 });
@@ -1639,6 +980,7 @@ $results['interval'] = 20;
                         if (this.modelTickInterval !== null) {
                             this.pause();
                         }
+
                         this.modelTickInterval = window.setInterval(this.modelTick, this.config.interval);
                         createjs.Ticker.addEventListener('tick', this.stageTick);
                         this.running = true;
@@ -1772,83 +1114,7 @@ $results['interval'] = 20;
                 return found;
             }
 
-            function getWidgetByName(name) {
-                let found = null;
-                Object.entries(widgets).forEach(([, widget]) => {
-                    if (widget.name === name) {
-                        if (found !== null) {
-                            console.warn('Multiple widgets named '.concat(name, ', returning last'));
-                        }
-                        found = widget;
-                    }
-                });
-                return found;
-            }
-
-            function getAnimateAnimByID(id) {
-                if (widgets[id]) {
-                    return widgets[id];
-                }
-                return null;
-            }
-
-            function getAnimateTextByID(id) {
-                if (widgets[id]) {
-                    return widgets[id];
-                }
-                return null;
-            }
-
-            function getButtonByID(id) {
-                if (widgets[id]) {
-                    return widgets[id];
-                }
-                return null;
-            }
-
-            function getRangeByID(id) {
-                if (widgets[id]) {
-                    return widgets[id];
-                }
-                return null;
-            }
-
-            function getToggleByID(id) {
-                if (widgets[id]) {
-                    return widgets[id];
-                }
-                return null;
-            }
-
-            function getChartByID(id) {
-                if (widgets[id]) {
-                    return widgets[id];
-                }
-                return null;
-            }
-
             const animateFps = 24
-
-            function initAnimates() {
-                const promises = [];
-                Object.entries(animates).forEach(([id, {
-                    source,
-                    root
-                }]) => {
-                    const element = document.getElementById(id);
-                    if (element === null) {
-                        return;
-                    }
-                    const promise = new Promise(resolve => {
-                        createAnimateRuntime(root, source, element, id).then(runtime => {
-                            animates[id] = runtime;
-                            resolve();
-                        });
-                    });
-                    promises.push(promise);
-                });
-                return promises;
-            }
 
             function resolveValueProviders() {
                 const resolve = id => {
@@ -1866,6 +1132,7 @@ $results['interval'] = 20;
                     }
                 };
                 Object.entries(widgets).forEach(([id, widget]) => {
+                    console.log(widget)
                     const providers = widget.getValueProviders();
                     const resolved = [];
                     Object.entries(providers).forEach(([attribute, id]) => {
@@ -1877,15 +1144,8 @@ $results['interval'] = 20;
 
             function initWidgets() {
                 const promises = [];
-                // promises.push(initAnimateAnimsControlled());
-                // promises.push(initAnimateAnimsContinuous());
-                // promises.push(initAnimateTexts());
-                // promises.push(initAnimatePlays());
-                // promises.push(initLabels());
-                // promises.push(initRanges());
-                promises.push(initButtons());
-                // promises.push(initToggles());
                 promises.push(initCharts());
+                console.log(promises)
                 return promises;
             }
 
@@ -1907,14 +1167,13 @@ $results['interval'] = 20;
                 // createjs.Ticker.framerate = animateFps;
                 Promise.all([
                     Promise.all(initValueProviders()),
-                    // Promise.all(initAnimates())
                 ]).then(() => {
                     Promise.all([initWidgets()]).then(() => {
                         resolveValueProviders();
 
                         Object.entries(models).forEach(([, model]) => model.init());
                         javascript.onBeforeModelRun.forEach(fn => fn());
-                        Object.entries(widgets).forEach(([, widget]) => widget.updateComponent());
+                        // Object.entries(widgets).forEach(([, widget]) => widget.updateComponent());
 
                         if (models['model-id'] && models['model-id'].play) {
                             models['model-id'].play(); // Automatically trigger play

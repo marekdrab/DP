@@ -4,7 +4,7 @@ $results['id'] = 'BouncingBall2';
 $results['modelMode'] = 'continuous';
 $results['stopTime'] = 4;
 $results['dataSets'] = ["h","e"];
-$results['stepSize'] = 0.001;
+$results['stepSize'] = 0.01;
 $results['interval'] = 20;
 
 ?>
@@ -1604,6 +1604,8 @@ $results['interval'] = 20;
                         const values = model.viewBuffer(this.valueBuffer);
                         model.fmi2GetReal(model.inst, references.byteOffset, this.length(), values.byteOffset);
                         this.values = new Float64Array(values.buffer, values.byteOffset, this.length());
+                        console.log('values')
+                        console.log(this.values)
                     }
 
                     value(index) {
@@ -1684,6 +1686,7 @@ $results['interval'] = 20;
                     },
                     'updateValueListeners': function updateValueListeners(immediate) {
                         this.valueListeners.forEach(listener => {
+                            console.log(listener.index)
                             console.log(this.outputValues.value(listener.index))
                             if (listener.immediate !== immediate) {
                                 return;
@@ -1853,6 +1856,7 @@ $results['interval'] = 20;
             function resolveValueProviders() {
                 const resolve = id => {
                     const provider = JSON.parse(id);
+                    console.log(id, provider)
                     if (provider.type === ProviderType.MODEL_PARAMETER || provider.type === ProviderType.MODEL_VARIABLE) {
                         const target = models[provider.parent];
                         if (target === null) {

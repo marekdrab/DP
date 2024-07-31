@@ -1980,10 +1980,8 @@ $results['interval'] = 20;
 
 
             function init() {
-                // createjs.Ticker.framerate = animateFps;
                 Promise.all([
                     Promise.all(initValueProviders()),
-                    // Promise.all(initAnimates())
                 ]).then(() => {
                     Promise.all([initWidgets()]).then(() => {
                         resolveValueProviders();

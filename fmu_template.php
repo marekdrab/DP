@@ -4,7 +4,7 @@ $results['id'] = 'BouncingBall2';
 $results['modelMode'] = 'continuous';
 $results['stopTime'] = 4;
 $results['dataSets'] = ["h","e"];
-$results['stepSize'] = 0.001;
+$results['stepSize'] = 0.01;
 $results['interval'] = 20;
 
 ?>
@@ -15,39 +15,21 @@ $results['interval'] = 20;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulation interface</title>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/slider.css">
 </head>
 <body>
 
 <main>
     <div class="container-fluid" id="main-container">
-        <div id='spinner-blur' class="mt-3">
-            <div class="flexblocks-item">
-                <div id="chart-id"></div>
-            </div>
-        </div>
+
     </div>
 </main>
 
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/createjs.min.js"></script>
-<script src="js/plotly-latest.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootbox.all.min.js"></script>
 
 <script src="FMU/Widget.js"></script>
-<script src="FMU/AnimateRuntime.js"></script>
-<script src="FMU/AnimateAnimContinuous.js"></script>
-<script src="FMU/AnimateAnimControlled.js"></script>
-<script src="FMU/AnimateText.js"></script>
-<script src="FMU/Button.js"></script>
-<script src="FMU/PlotlyBase.js"></script>
-<script src="FMU/PlotlyChart.js"></script>
-<script src="FMU/Gamblegram.js"></script>
-<script src="FMU/Label.js"></script>
-<script src="FMU/Range.js"></script>
+
+<script src="FMU/CustomWidget.js"></script>
 <script src="FMU/fmu_helpers.js"></script>
 <script>
 
@@ -169,193 +151,21 @@ $results['interval'] = 20;
                 'MODEL_VARIABLE': 'MV'
             }
 
-            config.actions = {
-                'pause-action-id': function (model) {
-                    model.pause();
-                },
-                'play-action-id': function (model) {
-                    model.play();
-                },
-                'settimeout-action-id': function () {
-                    window.setTimeout(this.updateComponent(), 50);
-                },
-                'initial-reset-action-id': function (model) {
-                    model.resetWithInitial(true, true);
-                },
-                'new-values-reset-action-id': function (model) {
-                    $('input.init-value').each(function () {
-                        model.setInitialValueByName($(this).attr('id'), parseFloat($(this).val()));
-                    });
-                    model.reset(true, true);
-                },
-                'graf-clear-action-id': function (graf) {
-                    graf.clear();
+            config.widgets.customwidget = {
+                'custom-widget': {
+                    'name': 'custom',
+                    'id': 'main-container', // potrebne naviazat na ID existujuceho DOM Elementu, inak nebude fungovat vypis hodnot
+                    'datasets': datasets
                 }
             }
 
-
-            config.widgets.charts = {
-                'chart-id': {
-                    'name': 'model-chart',
-                    'library': 'plotly',
-                    'xaxes': {
-                        'xaxis': {
-                            'visible': true,
-                            'color': '#444',
-                            'title': '',
-                            'type': 'linear',
-                            'autorange': true,
-                            'rangemode': 'normal',
-                            'range': null,
-                            'fixedrange': false,
-                            'tickmode': 'auto',
-                            'nticks': 0,
-                            'tickvals': null,
-                            'ticktext': null,
-                            'ticks': null,
-                            'mirror': null,
-                            'ticklen': 5,
-                            'tickwidth': 1,
-                            'tickcolor': '#444',
-                            'tickfont': null,
-                            'tickangle': 'auto',
-                            'tickprefix': '',
-                            'showtickprefix': 'all',
-                            'ticksuffix': '',
-                            'showticksuffix': 'all',
-                            'showexponent': 'all',
-                            'exponentformat': 'e',
-                            'separatethousands': false,
-                            'showticklabels': true,
-                            'automargin': true,
-                            'showspikes': false,
-                            'spikethickness': 3,
-                            'spikedash': 'dash',
-                            'spikemode': 'toaxis',
-                            'spikesnap': 'data',
-                            'showline': false,
-                            'linecolor': '#444',
-                            'linewidth': 1,
-                            'showgrid': true,
-                            'gridcolor': '#eee',
-                            'gridwidth': 1,
-                            'zeroline': true,
-                            'zerolinecolor': '#444',
-                            'zerolinewidth': 1,
-                            'side': 'left',
-                            'rangeslider': null,
-                            'rangeselector': null
-                        }
-                    },
-                    'yaxes': {
-                        'yaxis': {
-                            'visible': true,
-                            'color': '#444',
-                            'title': '',
-                            'type': 'linear',
-                            'autorange': true,
-                            'rangemode': 'normal',
-                            'range': null,
-                            'fixedrange': false,
-                            'tickmode': 'auto',
-                            'nticks': 0,
-                            'tickvals': null,
-                            'ticktext': null,
-                            'ticks': null,
-                            'mirror': null,
-                            'ticklen': 5,
-                            'tickwidth': 1,
-                            'tickcolor': '#444',
-                            'tickfont': null,
-                            'tickangle': 'auto',
-                            'tickprefix': '',
-                            'showtickprefix': 'all',
-                            'ticksuffix': '',
-                            'showticksuffix': 'all',
-                            'showexponent': 'all',
-                            'exponentformat': 'e',
-                            'separatethousands': false,
-                            'showticklabels': true,
-                            'automargin': true,
-                            'showspikes': false,
-                            'spikethickness': 3,
-                            'spikedash': 'dash',
-                            'spikemode': 'toaxis',
-                            'spikesnap': 'data',
-                            'showline': false,
-                            'linecolor': '#444',
-                            'linewidth': 1,
-                            'showgrid': true,
-                            'gridcolor': '#eee',
-                            'gridwidth': 1,
-                            'zeroline': true,
-                            'zerolinecolor': '#444',
-                            'zerolinewidth': 1,
-                            'side': 'left',
-                            'rangeslider': null,
-                            'rangeselector': null
-                        }
-                    },
-                    'margin': {
-                        'l': 50,
-                        'r': 20,
-                        'b': 20,
-                        't': 20,
-                        'pad': 4
-                    },
-                    'legend': {
-                        'bgcolor': '',
-                        'bordercolor': '#444',
-                        'borderwidth': 0,
-                        'font': {
-                            'family': '',
-                            'size': '',
-                            'color': ''
-                        },
-                        'orientation': 'v',
-                        'traceorder': 'normal',
-                        'tracegroupgap': 10,
-                        'x': 1.02,
-                        'y': 1,
-                        'xanchor': 'left',
-                        'yanchor': 'auto'
-                    },
-                    'fps': 20,
-                    'plot_bgcolor': '#FFFFFF00',
-                    'paper_bgcolor': '#FFFFFF00',
-                    'events': ['change'],
-                    'actions': {},
-                    'annotations': {},
-                    'datasets': datasets,
-                    'shapes': {},
-                    'images': {},
-                    'enabled': {
-                        'typeof': 'boolean',
-                        'value': true,
-                        'complex': false,
-                        'provider': null,
-                        'array': false,
-                        'indexes': null,
-                        'function': null
-                    },
-                    'id': 'chart-id'
-                }
-            }
-
-            function initCharts() {
+            function initCustomWidget() {
                 return new Promise(resolve => {
-                    const charts = config.widgets.charts;
-                    Object.entries(charts).forEach(([name, configuration]) => {
-                        let chart;
+                    const coustomWidget = config.widgets.customwidget;
+                    Object.entries(coustomWidget).forEach(([name, configuration]) => {
+                        let widget;
                         try {
-                            switch (configuration.library) {
-                                case 'plotly':
-                                    chart = new PlotlyChart(configuration);
-                                    break;
-                                case 'gamblegram':
-                                    chart = new Gamblegram(configuration);
-                                    break;
-                            }
+                            widget = new CustomWidget(configuration)
                         } catch (e) {
                             if (e instanceof ReferenceError) {
                                 console.warn(e.message);
@@ -364,7 +174,7 @@ $results['interval'] = 20;
                                 throw e;
                             }
                         }
-                        widgets[chart.id] = chart;
+                        widgets[widget.id] = widget;
                     });
                     resolve();
                 });
@@ -996,7 +806,7 @@ $results['interval'] = 20;
                     },
                     'setValue': function setValue(reference, value) {
                         //zmena pocas behu
-                        console.log(reference, value)
+                        // console.log(reference, value)
                         this.setSingleReal(reference, value);
                         this.lastInputValues[reference] = value;
                         this.valueSetters.forEach(item => {
@@ -1005,7 +815,7 @@ $results['interval'] = 20;
                             }
                             item.setter.setValue(item.attribute, value, this.currentStep);
                         });
-                        console.log('test' + reference, value)
+                        // console.log('test' + reference, value)
                     },
                     'modelTick': function modelTick() {
                         this.updateValueListeners(true);
@@ -1026,7 +836,7 @@ $results['interval'] = 20;
                     },
                     'updateValueListeners': function updateValueListeners(immediate) {
                         this.valueListeners.forEach(listener => {
-                            console.log(this.outputValues.value(listener.index))
+                            // console.log(this.outputValues.value(listener.index))
                             if (listener.immediate !== immediate) {
                                 return;
                             }
@@ -1114,8 +924,6 @@ $results['interval'] = 20;
                 return found;
             }
 
-            const animateFps = 24
-
             function resolveValueProviders() {
                 const resolve = id => {
                     const provider = JSON.parse(id);
@@ -1132,7 +940,7 @@ $results['interval'] = 20;
                     }
                 };
                 Object.entries(widgets).forEach(([id, widget]) => {
-                    console.log(widget)
+                    // console.log(widget)
                     const providers = widget.getValueProviders();
                     const resolved = [];
                     Object.entries(providers).forEach(([attribute, id]) => {
@@ -1144,8 +952,8 @@ $results['interval'] = 20;
 
             function initWidgets() {
                 const promises = [];
-                promises.push(initCharts());
-                console.log(promises)
+                promises.push(initCustomWidget());
+                // console.log(promises)
                 return promises;
             }
 
@@ -1164,7 +972,6 @@ $results['interval'] = 20;
             }
 
             function init() {
-                // createjs.Ticker.framerate = animateFps;
                 Promise.all([
                     Promise.all(initValueProviders()),
                 ]).then(() => {
@@ -1173,7 +980,6 @@ $results['interval'] = 20;
 
                         Object.entries(models).forEach(([, model]) => model.init());
                         javascript.onBeforeModelRun.forEach(fn => fn());
-                        // Object.entries(widgets).forEach(([, widget]) => widget.updateComponent());
 
                         if (models['model-id'] && models['model-id'].play) {
                             models['model-id'].play(); // Automatically trigger play

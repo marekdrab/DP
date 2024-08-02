@@ -1,4 +1,5 @@
 # Inštalácia a Spustenie Aplikácie
+Aplikácia je k dispozícii na adrese http://devs.iolab.sk/~drab/. Server bol poskytnutý vedúcou práce. 
 
 Na spustenie aplikácie na vlastnom serveri je potrebné splniť tieto podmienky:
 - nainštalovaný server Apache2
